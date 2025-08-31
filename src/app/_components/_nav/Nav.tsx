@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Style  from "./Nav.module.sass";
 
 interface NavProps {
   links: { href: string; label: string }[];
@@ -6,7 +7,7 @@ interface NavProps {
 
 export default function Nav({ links }: NavProps) {
   return (
-    <nav className="nav">
+    <nav className={Style.nav}>
       {links.map((link) => (
         <Link key={link.label} href={link.href}>
           {link.label}
