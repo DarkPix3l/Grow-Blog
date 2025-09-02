@@ -7,11 +7,23 @@ import { join } from "path";
 import matter from "gray-matter";
 
 export type Post = {
-  slug: String;
-  title: String;
-  date: String;
+  slug: string;
+  title: string;
+  excerpt: string;
+  coverImage: string;
+  date: string;
+  author: {
+    name: string;
+    picture: string;
+  };
+  ogImage?: {
+    url: string;
+  };
+  photoCredit?: {
+    avatar?: string;
+    cover?: string;
+  };
   content: string;
-  [key: string]: any;
 };
 
 const postsDirectory = join(process.cwd(), "_posts");
@@ -29,9 +41,21 @@ export function getPostBySlug(slug: string) {
   const post: Post = {
     slug: realSlug,
     title: String(data.title),
+    excerpt: String(data.excerpt),
+    coverImage: String(data.coverImage),
     date: String(data.date),
+    author: {
+      name: String(data.author?.name || ""),
+      picture: String(data.author?.picture || ""),
+    },
+    ogImage: data.ogImage ? { url: String(data.ogImage.url) } : undefined,
+    photoCredit: data.photoCredit
+      ? {
+          avatar: data.photoCredit.avatar ? String(data.photoCredit.avatar) : undefined,
+          cover: data.photoCredit.cover ? String(data.photoCredit.cover) : undefined,
+        }
+      : undefined,
     content,
-    ...data,
   };
 
   return post;
