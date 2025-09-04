@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+
+import "../../css/global.css";
 import Header from "./_components/_header/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Inria_Sans } from 'next/font/google';
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const inriaSans = Inria_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={inriaSans.className}>
         <Header />
         {children}
       </body>
