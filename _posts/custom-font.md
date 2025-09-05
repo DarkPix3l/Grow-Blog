@@ -11,6 +11,7 @@ ogImage:
 photoCredit:
   avatar: "Photo by Alexander Hipp - Unsplash"
   cover: "Photo by Ahmad Dirinion Unsplash"
+category: "Tech"
 ---
 
 Next.js provides first-class support for self-hosted and Google Fonts. You can import them using `next/font` and use custom CSS variables for fine control over your typography.

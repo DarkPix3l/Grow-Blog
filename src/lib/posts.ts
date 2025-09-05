@@ -23,6 +23,7 @@ export type Post = {
     avatar?: string;
     cover?: string;
   };
+  category: string;
   content: string;
 };
 
@@ -55,8 +56,20 @@ export function getPostBySlug(slug: string) {
           cover: data.photoCredit.cover ? String(data.photoCredit.cover) : undefined,
         }
       : undefined,
+    category: String(data.category),
     content,
   };
 
   return post;
 }
+
+export function getLatestPosts(limit: number): Post[] {
+  const slugs = getPosts();
+  
+  const posts = slugs.map((slug) => getPostBySlug(slug));
+
+  return posts
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit);
+}
+

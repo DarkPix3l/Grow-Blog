@@ -11,6 +11,7 @@ ogImage:
 photoCredit:
   avatar: "Photo by Resi Kling on Unsplash"
   cover: "Photo by scott-webb on Unsplash"
+category: "Tech"
 ---
 
 With the App Router in Next.js 13+, you can now use React Server Components to offload rendering work to the server, resulting in smaller client bundles.

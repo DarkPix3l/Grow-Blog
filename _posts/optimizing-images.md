@@ -11,6 +11,7 @@ ogImage:
 photoCredit:
   avatar: "Photo by imansyah-muhamad-putera on Unsplash"
   cover: "Photo by flyd on Unsplash"
+category: "Tech"
 ---
 
 Next.js offers a powerful `<Image />` component that provides automatic image resizing, lazy loading, and format selection (e.g., WebP).
