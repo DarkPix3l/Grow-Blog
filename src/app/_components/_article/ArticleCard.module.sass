@@ -1,0 +1,22 @@
+@use '../../styles/_variables' as *
+.card
+    overflow: hidden
+    border: 2px solid $background
+    border-top-left-radius: $radius-main
+    border-bottom-right-radius: $radius-main
+    display: grid
+    grid-template-columns: 1fr 1fr
+    .card_body
+        display: grid
+        grid-template-rows: subgrid
+        grid-row: span 3
+
+    .card_category
+        padding: 1rem
+        border: 1px solid $foreground
+        p
+            text-transform: uppercase
+
+    .card_action
+        display: flex
+        justify-content: space-between
