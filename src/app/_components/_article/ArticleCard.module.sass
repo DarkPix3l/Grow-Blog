@@ -1,22 +1,49 @@
 @use '../../styles/_variables' as *
-.card
-    overflow: hidden
-    border: 2px solid $background
-    border-top-left-radius: $radius-main
-    border-bottom-right-radius: $radius-main
-    display: grid
-    grid-template-columns: 1fr 1fr
-    .card_body
+.clickable
+    flex: 1
+
+    .card
+        overflow: hidden
+        border: 2px solid $foreground
+        border-top-left-radius: $radius-main
+        border-bottom-right-radius: $radius-main
         display: grid
-        grid-template-rows: subgrid
-        grid-row: span 3
+        grid-template-rows: 0.7fr 1fr 2fr
+        height: 100%
+        
+        .card_body
+            display: grid
+            grid-template-rows: subgrid
+            grid-row: span 3
+            padding: 20px
 
-    .card_category
-        padding: 1rem
-        border: 1px solid $foreground
-        p
-            text-transform: uppercase
+            .card_category
+                width: fit-content
+                height: fit-content
+                padding: 0.4rem 0.7rem
+                border: 1px solid $foreground
+                border-radius: $radius-main
+                p
+                    text-transform: uppercase
+            h2
+                margin-bottom: 0.7rem
+                white-space: pre-wrap
+                text-align: left
 
-    .card_action
-        display: flex
-        justify-content: space-between
+            .author_infos
+                display: flex
+                align-items: center
+                gap: 0.5rem
+                img
+                    border-radius: $radius-main
+                    aspect-ratio: 1
+                    border: 1px solid $foreground
+
+        .card_action
+            display: flex
+            justify-content: space-between
+            align-items: center
+            border-top: 1px solid $foreground
+            padding: 20px 20px
+            p
+                text-transform: uppercase
