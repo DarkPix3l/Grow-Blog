@@ -1,0 +1,36 @@
+@use '../styles/_variables' as *
+
+.main_article
+    display: grid
+    grid-template-columns: 1fr 3fr
+    overflow: hidden
+    height: calc( 100vh - $header-height )
+    aside
+        border-right: 1px solid $foreground
+        height: 100%
+
+        .author_infos
+            display: flex
+            align-items: center
+            gap: 0.5rem
+            img
+                border-radius: $radius-main
+                aspect-ratio: 1
+                border: 1px solid $foreground
+    .right_section
+        width: 80%
+        margin-inline: auto
+        overflow-y: scroll
+        scrollbar-width: none
+        -ms-overflow-style: none
+        &::-webkit-scrollbar
+            display: none
+        figure
+            margin-block: 40px
+            img
+                width: 100%
+                height: 100%
+        .article_text
+            margin-block: 60px
+            p,h2
+                margin-block-end: 30px
