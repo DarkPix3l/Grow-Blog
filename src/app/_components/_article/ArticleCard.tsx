@@ -3,17 +3,17 @@ import style from "./ArticleCard.module.sass";
 import { FiArrowRightCircle } from "react-icons/fi";
 import Link from "next/link";
 
-interface ArticleCardProps {
-  category: string;
+export interface ArticleCardProps {
+  category?: string;
   title: string;
   authorImg: string;
   authorName: string;
-  summary: string;
-  cover: string;
+  summary?: string;
+  cover?: string;
   slug: string;
 }
 
-export default function ArticleCard({ category, title, authorImg, authorName, summary, cover, slug }: ArticleCardProps) {
+export default function ArticleCard({ category, title, authorImg, authorName, slug }: ArticleCardProps) {
   return (
     <Link href={`/${slug}`} className={style.clickable}>
       <article className={style.card}>
