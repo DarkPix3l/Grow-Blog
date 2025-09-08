@@ -10,9 +10,10 @@ interface ArticlePageProps {
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params
+  const post = await getPostBySlug(slug);
   const content = await parser(post.content);
-
+  
   if (!post) {
     return <p>Post not found</p>;
   }
