@@ -1,18 +1,9 @@
-import Link from "next/link";
-import Style  from "./Nav.module.sass";
+import style from "./Nav.module.sass";
 
 interface NavProps {
-  links: { href: string; label: string }[];
+  children: React.ReactNode;
 }
 
-export default function Nav({ links }: NavProps) {
-  return (
-    <nav className={Style.nav}>
-      {links.map((link) => (
-        <Link key={link.label} href={link.href}>
-          {link.label}
-        </Link>
-      ))}
-    </nav>
-  );
+export default function Nav({ children }: NavProps) {
+  return <nav className={style.nav}>{children}</nav>;
 }

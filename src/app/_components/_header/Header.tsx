@@ -1,7 +1,10 @@
-import Nav from "../_nav/Nav";
 import Link from "next/link";
 import Image from "next/image";
-import Style from "./Header.module.sass"
+import Style from "./Header.module.sass";
+import Button from "../Button/Button";
+import Nav from "../_nav/Nav";
+import { TfiWorld } from "react-icons/tfi";
+import { BsSun } from "react-icons/bs";
 
 export default function Header() {
   return (
@@ -10,13 +13,13 @@ export default function Header() {
         <Link href="/">
           <Image className={Style.logo} src="/img/logo.svg" alt="the Blog's Logo" width={50} height={50} />
         </Link>
-        <Nav
-          links={[
-            { href: "/", label: "Home" },
-            { href: "/about", label: "About" },
-            { href: "/blog/create", label: "Create" },
-          ]} 
-        />
+        <Nav>
+          <Button goTo="/" variant="primary">Link 1</Button>
+          <Button goTo="#about" variant="primary">Link 2</Button>
+          <Button goTo="/login" variant="primary">Link 3</Button>
+          <Button goTo="/" variant="secondary"><TfiWorld /></Button>
+          <Button goTo="/language" variant="secondary"><BsSun /></Button>
+        </Nav>
       </div>
     </header>
   );

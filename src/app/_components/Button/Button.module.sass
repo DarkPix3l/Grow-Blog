@@ -1,0 +1,32 @@
+@use '../../styles/_variables' as *
+.button
+    border: none
+    cursor: pointer
+    font-size: 1rem
+    border-radius: $radius-main
+    transition: background 0.2s, color 0.2s
+    box-shadow: $button-inset
+    &.primary
+        padding: 0.75rem 1rem
+        background: $button-primary
+        color: $foreground
+        &:hover
+            background: $button-primary-hov
+    &.secondary
+        background: $button-secondary
+        color: $foreground
+        width: 2.50rem
+        height: 2.50rem
+        aspect-ratio: 1
+        display: flex
+        align-items: center
+        justify-content: center
+        &:hover
+            background: $button-secondary-hov
+
+
+/* .icon
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  margin-right: 0.5rem */
