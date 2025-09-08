@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import "../../css/global.css";
 import Header from "./_components/_header/Header";
 
-import { Inria_Sans } from 'next/font/google';
+import { Inria_Sans } from "next/font/google";
 
 const inriaSans = Inria_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inriaSans.className}>
-        <Header />
-        {children}
+        <main>
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );

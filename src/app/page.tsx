@@ -1,11 +1,12 @@
 import styles from "./page.module.sass";
 import { getLatestPosts } from "@/lib/posts";
 import ArticleCard from "./_components/_article/ArticleCard";
+import InsetContainer from "./_components/_InsetContainer/InsetContainer";
 
 export default function Home() {
   const latestPosts = getLatestPosts(4);
   return (
-    <main className={styles.page}>
+    <InsetContainer>
       <h1>GROW BLOG/_</h1>
       <div className={styles.separator}>
         <p>
@@ -30,6 +31,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </main>
+    </InsetContainer>
   );
 }
