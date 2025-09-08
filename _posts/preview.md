@@ -1,13 +1,13 @@
 ---
 title: "Preview Mode for Static Generation"
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies."
-coverImage: "/preview/cover.jpg"
+coverImage: "/img/articles/preview/cover.jpg"
 date: "june 1, 2024"
 author:
   name: Joe Haddad
-  picture: "/authors/joe.jpeg"
+  picture: "/img/authors/joe.jpeg"
 ogImage:
-  url: "/preview/cover.jpg"
+  url: "/img/articles/preview/cover.jpg"
 photoCredit:
   avatar: ""
   cover: "Photo by Scott Rodgerson on Unsplash"

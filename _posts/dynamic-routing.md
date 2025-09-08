@@ -1,13 +1,13 @@
 ---
 title: "Dynamic Routing and Static Generation"
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
-coverImage: "/dynamic-routing/cover.jpg"
+coverImage: "/img/articles/dynamic-routing/cover.jpg"
 date: "January 19, 2025"
 author:
   name: JJ Kasper
-  picture: "/authors/jj.jpeg"
+  picture: "/img/authors/jj.jpeg"
 ogImage:
-  url: "/dynamic-routing/cover.jpg"
+  url: "/img/articles/dynamic-routing/cover.jpg"
 photoCredit:
   avatar: ""
   cover: "Photo by li-zhang on Unsplash"

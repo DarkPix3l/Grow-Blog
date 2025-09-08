@@ -1,13 +1,13 @@
 ---
 title: "Optimizing Images with next/image"
 excerpt: "Learn how to optimize performance and loading time by using the built-in Image component provided by Next.js."
-coverImage: "/optimizing-images/cover.jpg"
+coverImage: "/img/articles/optimizing-images/cover.jpg"
 date: "march 21, 2025"
 author:
   name: Alex Kim
-  picture: "/authors/alex.jpg"
+  picture: "/img/authors/alex.jpg"
 ogImage:
-  url: "/optimizing-images/cover.jpg"
+  url: "/img/articles/optimizing-images/cover.jpg"
 photoCredit:
   avatar: "Photo by imansyah-muhamad-putera on Unsplash"
   cover: "Photo by flyd on Unsplash"

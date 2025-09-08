@@ -1,13 +1,13 @@
 ---
 title: "Client vs Server Components in Next.js"
 excerpt: "Next.js now supports React Server Components. Understand the difference between client and server components and when to use them. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
-coverImage: "/compontent-types/cover.jpg"
+coverImage: "/img/articles/compontent-types/cover.jpg"
 date: "February 1, 2025"
 author:
   name: Emma Brooks
-  picture: "/authors/emmaBrooks.jpg"
+  picture: "/img/authors/emmaBrooks.jpg"
 ogImage:
-  url: "/compontent-types/cover.jpg"
+  url: "/img/articles/compontent-types/cover.jpg"
 photoCredit:
   avatar: "Photo by Resi Kling on Unsplash"
   cover: "Photo by scott-webb on Unsplash"
