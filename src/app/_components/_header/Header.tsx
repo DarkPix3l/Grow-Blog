@@ -15,10 +15,10 @@ export default function Header() {
         </Link>
         <Nav>
           <Button goTo="/" variant="primary">Link 1</Button>
-          <Button goTo="#about" variant="primary">Link 2</Button>
-          <Button goTo="/login" variant="primary">Link 3</Button>
+          <Button goTo="#" variant="primary">Link 2</Button>
+          <Button goTo="/" variant="primary">Link 3</Button>
           <Button goTo="/" variant="secondary"><TfiWorld /></Button>
-          <Button goTo="/language" variant="secondary"><BsSun /></Button>
+          <Button goTo="/" variant="secondary"><BsSun /></Button>
         </Nav>
       </div>
     </header>

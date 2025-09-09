@@ -22,7 +22,7 @@ export default function ArticleCard({ category, title, authorImg, authorName, sl
             <p>{category}</p>
           </div>
           <div>
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <div className={style.author_infos}>
               <Image src={authorImg} alt={`${authorName} image`} width={40} height={40} />
               <p>{`written by ${authorName}`}</p>

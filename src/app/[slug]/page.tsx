@@ -22,7 +22,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <InsetContainer className={style.inset_container_article}>
       <article className={style.main_article}>
         <aside>
-          <h1>{post.title}</h1>
+          <h2>{post.title}</h2>
           <div className={style.author_infos}>
             <Image src={post.author.picture} alt={`${post.author.name} image`} width={40} height={40} />
             <p>{`written by ${post.author.name}`}</p>
