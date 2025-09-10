@@ -28,6 +28,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <p>{`written by ${post.author.name}`}</p>
           </div>
         </aside>
+        <hr />
         <section className={style.right_section}>
           <figure>
             <Image src={post.coverImage} alt={`${post.title}image`} width={100} height={100} sizes="100%" />
