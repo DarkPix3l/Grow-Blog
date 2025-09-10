@@ -5,6 +5,9 @@ interface ContainerProps {
   className?: string;
 }
 
-export default function InsetContainer({ children, className }: ContainerProps) {
+export default function InsetContainer({
+  children,
+  className,
+}: ContainerProps) {
   return <div className={`${style.page} ${className ?? ""}`}>{children}</div>;
 }

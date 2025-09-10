@@ -9,7 +9,13 @@ export default function NextArticle({ currentSlug }: { currentSlug: string }) {
       <h3>You may also like</h3>
       {randomPost.map((post) => (
         <div key={post.slug} className={style.snippet}>
-          <Image src={post.coverImage} width={120} height={120} alt={post.slug} sizes="100%" />
+          <Image
+            src={post.coverImage}
+            width={120}
+            height={120}
+            alt={post.slug}
+            sizes="100%"
+          />
           <div className={style.text_infos}>
             <h4>{post.title}</h4>
             <p>{post.excerpt}</p>

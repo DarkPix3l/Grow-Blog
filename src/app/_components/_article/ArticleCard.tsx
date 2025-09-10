@@ -13,7 +13,13 @@ export interface ArticleCardProps {
   slug: string;
 }
 
-export default function ArticleCard({ category, title, authorImg, authorName, slug }: ArticleCardProps) {
+export default function ArticleCard({
+  category,
+  title,
+  authorImg,
+  authorName,
+  slug,
+}: ArticleCardProps) {
   return (
     <Link href={`/${slug}`} className={style.clickable}>
       <article className={style.card}>
@@ -24,7 +30,12 @@ export default function ArticleCard({ category, title, authorImg, authorName, sl
           <div>
             <h3>{title}</h3>
             <div className={style.author_infos}>
-              <Image src={authorImg} alt={`${authorName} image`} width={40} height={40} />
+              <Image
+                src={authorImg}
+                alt={`${authorName} image`}
+                width={40}
+                height={40}
+              />
               <p>{`written by ${authorName}`}</p>
             </div>
           </div>

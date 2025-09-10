@@ -8,7 +8,12 @@ interface ButtonProps {
   goTo: string;
 }
 
-export default function Button({ variant = "primary", icon, children, goTo }: ButtonProps) {
+export default function Button({
+  variant = "primary",
+  icon,
+  children,
+  goTo,
+}: ButtonProps) {
   const className = `${style.button} ${style[variant]}`;
   return (
     <Link href={goTo}>

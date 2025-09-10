@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Style  from "./NavLinks.module.sass";
+import Style from "./NavLinks.module.sass";
 
 interface NavProps {
   links: { href: string; label: string }[];

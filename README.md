@@ -8,4 +8,3 @@ It demonstrates Next.js's **Static Generation** feature with Markdown files as t
 - Blog posts are stored in the `/_posts` directory as Markdown files.
 - Adding a new Markdown file will automatically create a new blog post.
 - The Markdown content is used to populate props in a page component, resulting in multiple pages with the same layout but different content.
-

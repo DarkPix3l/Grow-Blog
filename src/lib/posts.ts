@@ -52,8 +52,12 @@ export function getPostBySlug(slug: string) {
     ogImage: data.ogImage ? { url: String(data.ogImage.url) } : undefined,
     photoCredit: data.photoCredit
       ? {
-          avatar: data.photoCredit.avatar ? String(data.photoCredit.avatar) : undefined,
-          cover: data.photoCredit.cover ? String(data.photoCredit.cover) : undefined,
+          avatar: data.photoCredit.avatar
+            ? String(data.photoCredit.avatar)
+            : undefined,
+          cover: data.photoCredit.cover
+            ? String(data.photoCredit.cover)
+            : undefined,
         }
       : undefined,
     category: String(data.category),
@@ -68,10 +72,12 @@ export function getLatestPosts(limit: number): Post[] {
 
   const posts = slugs.map((slug) => getPostBySlug(slug));
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, limit);
+  return posts
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit);
 }
 
-export function getRandomPosts(limit: number, currentSlug:string): Post[] {
+export function getRandomPosts(limit: number, currentSlug: string): Post[] {
   const allPosts = getPosts().map((slug) => getPostBySlug(slug));
   const filteredPosts = allPosts.filter((post) => post.slug !== currentSlug);
   const tempPosts = [...filteredPosts];
