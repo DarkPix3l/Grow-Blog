@@ -1,0 +1,8 @@
+.page {
+  background-color: #EBEBEB;
+  border-radius: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-shadow: inset 7px 8px 8px 1px rgba(14, 15, 43, 0.3), inset -8px -10px 9px -9px rgba(14, 15, 43, 0.5);
+}/*# sourceMappingURL=InsetContainer.module.css.map */

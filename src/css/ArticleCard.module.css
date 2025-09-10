@@ -1,0 +1,55 @@
+.clickable {
+  flex: 1;
+}
+.clickable .card {
+  overflow: hidden;
+  border: 2px solid #1E1E1E;
+  border-top-left-radius: 44px;
+  border-bottom-right-radius: 44px;
+  display: grid;
+  grid-template-rows: 0.7fr 1fr 2fr;
+  height: 100%;
+}
+.clickable .card .card_body {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding: 20px;
+}
+.clickable .card .card_body .card_category {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #1E1E1E;
+  border-radius: 44px;
+}
+.clickable .card .card_body .card_category p {
+  text-transform: uppercase;
+}
+.clickable .card .card_body h3 {
+  margin-bottom: 0.7rem;
+  white-space: pre-wrap;
+  text-align: left;
+}
+.clickable .card .card_body .author_infos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.clickable .card .card_body .author_infos img {
+  border-radius: 44px;
+  aspect-ratio: 1;
+  border: 1px solid #1E1E1E;
+}
+.clickable .card .card_action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #1E1E1E;
+  padding: 20px 20px;
+}
+.clickable .card .card_action p {
+  text-transform: uppercase;
+}/*# sourceMappingURL=ArticleCard.module.css.map */
