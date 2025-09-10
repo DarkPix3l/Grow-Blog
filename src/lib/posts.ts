@@ -65,11 +65,21 @@ export function getPostBySlug(slug: string) {
 
 export function getLatestPosts(limit: number): Post[] {
   const slugs = getPosts();
-  
+
   const posts = slugs.map((slug) => getPostBySlug(slug));
 
-  return posts
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, limit);
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, limit);
 }
 
+export function getRandomPosts(limit: number, currentSlug:string): Post[] {
+  const allPosts = getPosts().map((slug) => getPostBySlug(slug));
+  const filteredPosts = allPosts.filter((post) => post.slug !== currentSlug);
+  const tempPosts = [...filteredPosts];
+
+  // Shuffle the entire temporary array using the Fisher-Yates algorithm.
+  for (let i = tempPosts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [tempPosts[i], tempPosts[j]] = [tempPosts[j], tempPosts[i]];
+  }
+  return tempPosts.slice(0, limit);
+}
