@@ -6,7 +6,7 @@ import InsetContainer from "./_components/_InsetContainer/InsetContainer";
 export default function Home() {
   const latestPosts = getLatestPosts(4);
   return (
-    <InsetContainer>
+    <InsetContainer className={styles.inset_homepage}>
       <h1>GROW BLOG/_</h1>
       <div className={styles.separator}>
         <p>

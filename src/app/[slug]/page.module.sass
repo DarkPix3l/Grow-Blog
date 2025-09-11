@@ -7,7 +7,7 @@
         grid-template-columns: 1fr 0fr 3fr
         aside
             height: 100%
-            padding: 1.5rem
+            padding: $padding-insetContainer
             display: flex
             flex-direction: column
             gap: 82px
@@ -33,7 +33,7 @@
         .right_section
             width: 80%
             margin-inline: auto
-            padding-block: 1.5rem
+            padding-block: $padding-insetContainer
             overflow-y: scroll
             scrollbar-width: none
             -ms-overflow-style: none
@@ -43,6 +43,7 @@
                 img
                     width: 100%
                     height: 100%
+                    border-radius: 0.5rem
             .article_text
                 margin-block: 60px
                 p,h2
@@ -52,7 +53,7 @@
         align-items: center
         .circle
                 border-radius: $radius-main
-                border: 2px solid$foreground
+                border: 2px solid $foreground
                 width: 6px
                 height: 6px
         .line
