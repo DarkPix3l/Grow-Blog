@@ -1,63 +1,73 @@
 @use '../styles/_variables' as *
-.inset_container_article
-    height: calc( 100vh - ($header-height + 1.5rem)) //screen height - header height - its padding
-    .main_article
-        overflow: hidden
-        display: grid
-        grid-template-columns: 1fr 0fr 3fr
-        aside
-            height: 100%
-            padding: $padding-insetContainer
-            display: flex
-            flex-direction: column
-            gap: 82px
-            h2
-                margin-bottom: 0.75rem
-                text-align: left
 
-            .author_infos
-                display: flex
-                align-items: center
-                gap: 0.5rem
-                img
-                    border-radius: $radius-main
-                    aspect-ratio: 1
-                    border: 1px solid $foreground
-        hr
-            justify-self: start
-            align-self: start
-            height: 95%
-            margin: auto
-            border: none
-            border-right: 1px solid $foreground
-        .right_section
-            width: 80%
-            margin-inline: auto
-            padding-block: $padding-insetContainer
-            overflow-y: scroll
-            scrollbar-width: none
-            -ms-overflow-style: none
-            &::-webkit-scrollbar
-                display: none
-            figure
-                img
-                    width: 100%
-                    height: 100%
-                    border-radius: 0.5rem
-            .article_text
-                margin-block: 60px
-                p,h2
-                    margin-block-end: 30px
-    .deko
+.main_article
+    overflow: hidden
+    display: grid
+    grid-template-columns: 1fr 0fr 3fr
+    aside
+        height: 100%
+        padding: $padding-insetContainer
         display: flex
-        align-items: center
-        .circle
+        flex-direction: column
+        justify-content: space-between
+        gap: 82px
+        h2
+            margin-bottom: 0.75rem
+            text-align: left
+
+        .author_infos
+            display: flex
+            align-items: center
+            gap: 0.5rem
+            img
                 border-radius: $radius-main
-                border: 2px solid $foreground
-                width: 6px
-                height: 6px
-        .line
-            width: 100%
-            height: 1px
-            background-color: $foreground
+                aspect-ratio: 1
+                border: 1px solid $foreground
+        .inset
+            border-radius: $radius-main
+            box-shadow: $inset-sharp
+            padding: 0.5rem
+            display: flex
+            align-items: center
+            gap: 0.5rem
+            p
+                font-weight: 600
+    hr
+        justify-self: start
+        align-self: start
+        height: 95%
+        margin: auto
+        border: none
+        border-right: 1px solid $foreground
+    .right_section
+        width: 80%
+        margin-inline: auto
+        padding-block: $padding-insetContainer
+        overflow-y: scroll
+        scrollbar-width: none
+        -ms-overflow-style: none
+        &::-webkit-scrollbar
+            display: none
+        figure
+            img
+                width: 100%
+                height: 100%
+                border-radius: 0.5rem
+        .article_text
+            margin-block: 60px
+            p,h2
+                margin-block-end: 30px
+.deko
+    display: flex
+    align-items: center
+    margin-block: 1rem
+    .circle
+            border-radius: $radius-main
+            border: 2px solid $foreground
+            width: 6px
+            height: 6px
+    .line
+        width: 100%
+        height: 1px
+        background-color: $foreground
 
