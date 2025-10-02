@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/app/_components/NextArticle/NextArticle.module.sass","NextArticle.module.css"],"names":[],"mappings":"AACI;EACI,mBAAA;ACAR;ADCI;EACI,aAAA;EACA,iCAAA;EACA,iBAAA;EACA,gBAAA;EACA,sBAAA;EACA,SAAA;EACA,kBAAA;ACCR;ADAQ;EACI,iBAAA;EACA,mBAAA;ACEZ;ADDQ;EACI,qBAAA;ACGZ;ADFI;EACI,mBAAA;ACIR","file":"NextArticle.module.css"}
