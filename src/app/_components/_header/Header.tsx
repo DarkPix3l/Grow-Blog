@@ -20,19 +20,19 @@ export default function Header() {
           />
         </Link>
         <Nav>
-          <Button goTo="/" variant="primary">
+          <Button goTo="/" variant="primary-top">
             Link 1
           </Button>
-          <Button goTo="#" variant="primary">
+          <Button goTo="#" variant="primary-top">
             Link 2
           </Button>
-          <Button goTo="/" variant="primary">
+          <Button goTo="/" variant="primary-top">
             Link 3
           </Button>
-          <Button goTo="/" variant="secondary">
+          <Button goTo="/" variant="secondary-inset">
             <TfiWorld />
           </Button>
-          <Button goTo="/" variant="secondary">
+          <Button goTo="/" variant="secondary-inset">
             <BsSun />
           </Button>
         </Nav>

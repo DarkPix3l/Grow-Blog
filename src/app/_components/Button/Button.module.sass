@@ -1,30 +1,44 @@
 @use '../../styles/_variables' as *
 .button
-    border: none
-    cursor: pointer
     font-size: 1rem
     border-radius: $radius-main
-    transition: background 0.2s, color 0.2s
-    box-shadow: $button-inset
-    &.primary
-        padding: 0.75rem 1rem
-        background: $button-primary
-        color: $foreground
-        &:hover
-            background: $button-primary-hov
-        &:active
-            background: $button-primary-act
-    &.secondary
-        background: $button-secondary
-        color: $foreground
-        width: 2.50rem
-        height: 2.50rem
-        aspect-ratio: 1
-        display: flex
-        align-items: center
-        justify-content: center
-        &:hover
-            background: $button-secondary-hov
-        &:active
-            background: $button-secondary-act
-            
+    transition: background 0.4s, color 0.4s
+    display: flex
+    align-items: center
+    justify-content: center
+
+%primary
+    padding: 0.6rem 1rem
+    background: $button-primary
+    color: $foreground
+    &:hover
+        background: $button-primary-hov
+    &:active
+        background: $button-primary-act
+
+.primary-inset 
+    @extend %primary
+    box-shadow: 0 0 5px white, inset 1px 0 2px #3A2E2E, 0 0 1px #1e1e1eb7
+
+.primary-top
+    @extend %primary
+    box-shadow: inset 1px 1px 1px white, 1px 1.5px 4px #0000009a, 0 0 2px #1e1e1e8a
+
+%secondary
+    background: $button-secondary
+    color: $foreground
+    width: 2.50rem
+    height: 2.50rem
+    aspect-ratio: 1
+    &:hover
+        background: $button-secondary-hov
+    &:active
+        background: $button-secondary-act
+
+.secondary-inset
+    @extend %secondary
+    box-shadow: 0 0 5px white, inset 1px 0 2px #3A2E2E, 0 0 1px #1e1e1ede
+        
+.secondary-top
+    @extend %secondary
+    box-shadow: inset -1px -3px 4px #EBEBEB, inset 0px 3px 2px #ffffff, inset -3px 4px 2px #00000056, inset 0 4px 4px #00000056, 0 4px 4px #00000056

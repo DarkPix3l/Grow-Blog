@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "../css/global.css";
+import "../../css/global.css";
 import Header from "./_components/_header/Header";
 
 import { Inria_Sans } from "next/font/google";
