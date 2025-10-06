@@ -5,7 +5,7 @@ interface NavProps {
   links: { href: string; label: string }[];
 }
 
-export default function Nav({ links }: NavProps) {
+export default function NavLinks({ links }: NavProps) {
   return (
     <nav className={Style.nav}>
       {links.map((link) => (

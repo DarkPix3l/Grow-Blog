@@ -2,6 +2,7 @@ import styles from "./page.module.sass";
 import { getLatestPosts } from "@/lib/posts";
 import ArticleCard from "./_components/_article/ArticleCard";
 import InsetContainer from "./_components/_InsetContainer/InsetContainer";
+import CtaBar from "./_components/_CTAbar/CtaBar";
 
 export default function Home() {
   const latestPosts = getLatestPosts(4);
@@ -14,6 +15,7 @@ export default function Home() {
             A blog platform built for the world. Share your thoughts, tutorials, and stories, and let our tools translate your content seamlessly. Write freely while your audience enjoys a clean, distraction-free reading experience, always in their own language.
           </p>
         </div>
+        <CtaBar/>
         <section className={styles.latest}>
           <h2>Latest Posts</h2>
           <div className={styles.latestPosts}>
