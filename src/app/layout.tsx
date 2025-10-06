@@ -24,10 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inriaSans.className}>
-        <main>
           <Header />
           {children}
-        </main>
       </body>
     </html>
   );

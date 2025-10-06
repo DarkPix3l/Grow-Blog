@@ -12,7 +12,6 @@ export default function Header() {
       <div className={Style.headerWrapper}>
         <Link href="/">
           <Image
-            className={Style.logo}
             src="/img/logo.svg"
             alt="the Blog's Logo"
             width={50}

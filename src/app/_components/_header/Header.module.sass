@@ -1,13 +1,20 @@
 @use '../../styles/_variables' as *
 
 .header
-    width: 100%
-    height: $header-height
-    border-radius: 3rem
-    background-color: transparent
+    width: calc( 100% - 4rem )
+    height: calc( $header-height - 10px )
+    margin-inline: auto
+    margin-top: 5px
     display: flex
     justify-content: center
     align-items: center
+    background: linear-gradient(180deg, #e7e7e762, #a7a7a75d, #e7e7e762,)
+    backdrop-filter: blur(4px)
+    filter: noise(5)
+    box-shadow: 1px 1px 10px 0px rgba(36, 36, 36, 0.5), inset 0 0 5px white
+    position: fixed
+    inset: 0
+    border-radius: 3rem
 
 .headerWrapper
     width: 90%
@@ -15,6 +22,3 @@
     display: flex
     align-items: center
     justify-content: space-between
-
-.logo
-    filter: invert(1)
