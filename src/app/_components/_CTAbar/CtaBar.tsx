@@ -13,14 +13,14 @@ export default function CtaBar() {
         width={40}
         height={40}
       />
-      <Link href={"/"}>
+      <Link href={"/"} aria-label="start writing">
         <h2>
           <strong>Start Writing!</strong>
         </h2>
         <FiArrowUpRight size={43} />
       </Link>
       <div className={style.tratto}></div>
-      <Link href={"/"}>
+      <Link href={"/"} aria-label="content your way">
         <h2>
           <strong>Content, Your Way</strong>
         </h2>

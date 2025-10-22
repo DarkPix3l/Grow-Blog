@@ -6,7 +6,7 @@ import InsetContainer from '../_components/_InsetContainer/InsetContainer'
 import NextArticle from '../_components/NextArticle/NextArticle'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 import Link from 'next/link'
-import { IoIosArrowDropupCircle } from "react-icons/io";
+import { IoIosArrowDropupCircle } from 'react-icons/io'
 
 interface ArticlePageProps {
     params: {
@@ -28,7 +28,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <article className={style.main_article}>
                     <aside>
                         <input type="checkbox" name="slideUp" id="slideUp" />
-                        <IoIosArrowDropupCircle size={50} className={style.arrowUp}/>
+                        <IoIosArrowDropupCircle
+                            size={50}
+                            className={style.arrowUp}
+                        />
 
                         <div>
                             <h2>{post.title}</h2>

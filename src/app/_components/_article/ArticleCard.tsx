@@ -25,14 +25,14 @@ export default function ArticleCard({
       <article className={style.card}>
         <div className={style.card_body}>
           <div className={style.card_category}>
-            <p>{category}</p>
+            <p data-testid = "categoryField">{category}</p>
           </div>
           <div>
-            <h3>{title}</h3>
+            <h3 data-testid="cardTitle">{title}</h3>
             <div className={style.author_infos}>
               <Image
                 src={authorImg}
-                alt={`${authorName} image`}
+                alt={`${authorName}, author picture`}
                 width={40}
                 height={40}
               />
