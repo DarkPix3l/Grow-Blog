@@ -1,4 +1,5 @@
 @use './_variables'as *
+@use './_breakpoints' as *
 
 *
   box-sizing: border-box
@@ -19,6 +20,11 @@ a
   color: inherit
 
 main
-  padding-inline: 2rem
   padding-top: $header-height
   padding-bottom: 18px
+  padding-inline: 1rem
+  height: 100vh
+  @include break(lg)
+    padding-inline: 2rem
+
+  

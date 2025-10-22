@@ -1,14 +1,15 @@
 @use './_variables' as *
+@use './_breakpoints' as *
 
 h1
-  font-size: 6rem
+  font-size: clamp(4rem,5vw,6rem)
   line-height: 1
 
 h2
-  font-size: 2.5rem
+  font-size: clamp(1.5rem, 2vw, 2.5rem)
 
 h3
-  font-size: 1.5rem
+  font-size: clamp(1.3rem, 1.5vw, 2.5rem)
 
 h1, h2, h3, h4, h5, h6
   color: $headings

@@ -1,22 +1,50 @@
 @use './styles/_variables' as *
+@use './styles/_breakpoints' as *
 
 .inset_homepage
-    padding: $padding-insetContainer
+    padding: 0.2rem
+    h1
+        padding: 1rem
+    @include break(xl)
+        padding: 1rem
+        padding: $padding-insetContainer
+
 .separator
-    padding-block: 1.2rem
     border-block: 2px solid $foreground
     text-align: left
+    padding-bottom: 1.2rem
+    margin: 1rem
+    @include break(md)
+        padding-block: 1.2rem
+        margin: 0
+    
+    p
+        display: none
+        @include break(md)
+            display: block
 
 .latest
     display: flex
     flex-direction: column
-    gap: 40px
+    justify-content: center
+    gap: 20px
     height: 100%
+
+    @include break(xl)
+        gap: 40px
+    
     h2
         text-align: center
         
 .latestPosts
-    display: flex
-    gap: 0.8rem
-    height: 100%
-
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    overflow-x: auto
+    scroll-margin: 230px
+    gap: 0.5rem
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &::-webkit-scrollbar
+        display: none
+    @include break(xl)
+        gap: 0.8rem
