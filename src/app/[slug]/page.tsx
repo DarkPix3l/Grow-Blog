@@ -1,5 +1,5 @@
-import { getPostBySlug } from "@/lib/posts";
-import parser from "@/lib/parser";
+import { getPostBySlug } from "@/_lib/posts";
+import parser from "@/_lib/parser";
 import style from "./page.module.sass";
 import Image from "next/image";
 import InsetContainer from "../_components/_InsetContainer/InsetContainer";
