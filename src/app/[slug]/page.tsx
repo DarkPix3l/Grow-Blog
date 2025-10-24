@@ -56,6 +56,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <hr />
           <section className={style.right_section}>
             <figure>
+              <div className={style.img_mask}>
               <Image
                 src={post.coverImage}
                 alt={`${post.title}image`}
@@ -63,6 +64,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 height={100}
                 sizes="100%"
               />
+              </div>
               <figcaption>
                 <em>Photo credit: {post.photoCredit?.cover ?? "Unknown"}</em>
               </figcaption>
