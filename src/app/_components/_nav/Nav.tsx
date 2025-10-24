@@ -2,8 +2,9 @@ import style from "./Nav.module.sass";
 
 interface NavProps {
   children: React.ReactNode;
+  className?:string;
 }
 
-export default function Nav({ children }: NavProps) {
-  return <nav className={style.nav}>{children}</nav>;
+export default function Nav({ children, className }: NavProps) {
+  return <nav className={`${style.nav} ${className ?? ''}`}>{children}</nav>;
 }
