@@ -6,11 +6,16 @@
     align-items: center
     justify-content: space-between
     border-radius: 5rem
-    padding: 0.8rem 5rem
+    padding: clamp(0.8rem, 4vw, 1.5rem)
     background: linear-gradient(to right, #BBC8C9, #ADAFC1)
     box-shadow: 0 0 7.2px #e1e1e1, inset 2px 2px 7.8 #3a2e2ed7
+    flex-direction: column
+    gap: 1rem
     @include break(md)
         display: flex
+    @include break(lg)
+        gap: 0
+        flex-direction: row
 
     a
         display: flex
@@ -20,11 +25,13 @@
         font-size: 1.8rem
         white-space: nowrap
     .tratto
-        width: 100%
         align-self: stretch
         border: 2px dashed white
         border-radius: 5rem
         margin-inline: 2rem
+        width: unset
+        @include break(md)
+            width: 100%
     .ctaLogo
         filter: invert(1)
         margin-right: 2rem
