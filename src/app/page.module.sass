@@ -3,48 +3,54 @@
 
 .inset_homepage
     padding: 0.2rem
-    h1
-        padding: 1rem
     @include break(xl)
         padding: 1rem
         padding: $padding-insetContainer
+    .wrapper
+        padding-inline: 1rem
+        padding-top: 1rem
+        display: flex
+        flex-direction: column
+        gap: clamp(1.2rem, 5vw, 2rem)
 
-.separator
-    border-block: 2px solid $foreground
-    text-align: left
-    padding-bottom: 1.2rem
-    margin: 1rem
-    @include break(md)
-        padding-block: 1.2rem
-        margin: 0
-    
-    p
-        display: none
-        @include break(md)
-            display: block
+        .separator
+            border-block: 2px solid $foreground
+            text-align: left
+            padding-bottom: 1.2rem
+            margin: 1rem
+            @include break(md)
+                padding-block: 1.2rem
+                margin: 0
+            
+            p
+                display: none
+                @include break(md)
+                    display: block
 
-.latest
-    display: flex
-    flex-direction: column
-    justify-content: center
-    gap: 20px
-    height: 100%
+    .latest
+        display: flex
+        flex-direction: column
+        flex: 1
+        min-height: 0
 
-    @include break(xl)
-        gap: 40px
-    
-    h2
-        text-align: center
+        @include break(xl)
+            gap: 40px
         
-.latestPosts
-    display: grid
-    grid-template-columns: repeat(4, 1fr)
-    overflow-x: auto
-    scroll-margin: 230px
-    gap: 0.5rem
-    scrollbar-width: none
-    -ms-overflow-style: none
-    &::-webkit-scrollbar
-        display: none
-    @include break(xl)
-        gap: 0.8rem
+        h2
+            text-align: center
+            margin-bottom: 2rem
+            
+    .latestPosts
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        overflow-x: auto
+        scroll-margin: 230px
+        gap: 0.5rem
+        max-height: 600px
+        height: 100%
+        scrollbar-width: none
+        -ms-overflow-style: none
+        &::-webkit-scrollbar
+            display: none
+        @include break(xl)
+            gap: 0.8rem

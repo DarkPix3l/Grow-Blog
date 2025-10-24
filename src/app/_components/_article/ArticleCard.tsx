@@ -39,7 +39,7 @@ export default function ArticleCard({
               <p>{`written by ${authorName}`}</p>
             </div>
           </div>
-          <div></div>
+          <div className={style.dynamic_space}></div>
         </div>
         <div className={style.card_action}>
           <p>go to article</p>
