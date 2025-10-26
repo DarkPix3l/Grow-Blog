@@ -1,6 +1,6 @@
 "use client"
 
-import { useConditionalRendering } from '@/_hooks/conditionalRendering'
+import { useConditionalRendering } from '@/_hooks/ConditionalRendering'
 import DesktopHeader from './DesktopHeader/DesktopHeader'
 import MobileHeader from './MobileHeader/MobileHeader'
 

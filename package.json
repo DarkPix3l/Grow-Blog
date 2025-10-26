@@ -7,7 +7,7 @@
     "prebuild": "sass src/app/styles/:css/",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint './{src,app}/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write ."
   },
   "dependencies": {
