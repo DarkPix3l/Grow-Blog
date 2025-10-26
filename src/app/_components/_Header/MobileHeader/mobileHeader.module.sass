@@ -18,7 +18,7 @@
     border-radius: 3rem
     transition: height 1s ease
     overflow: hidden
-    z-index: 2
+    z-index: 3
     .m_headerWrapper
         width: 90%
         max-width: 500px
@@ -26,22 +26,29 @@
         display: flex
         flex-direction: column
         gap: 2rem
+        .icons
+            display: flex
+            justify-content: space-between
+            align-items: center
     .m_nav
         flex-direction: column
+        justify-content: space-between
+
         a
             z-index: 5
+        .primay_button_group > a
+            width: 100%
+            margin-block-end: 1rem
+        a:nth-last-child(1)
+                margin-block-end: 0           
+        
         .secondary_button_group
             display: flex
             justify-content: space-between
-            a
-                z-index: 5
-
-
 
     @include break(xxl)
         max-width: $maxWidth-wrapper
 
 .m_header_open
-    height: 100%
-    
+    height: 98%
 

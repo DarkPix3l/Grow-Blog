@@ -15,8 +15,8 @@ export default function DesktopHeader() {
                     <Image
                         src="/img/logo.svg"
                         alt="the Blog's Logo"
-                        width={50}
-                        height={50}
+                        width={42}
+                        height={42}
                     />
                 </Link>
 
