@@ -7,11 +7,13 @@
 .main_article
     overflow: hidden
     height: 100%
+    display: grid
     grid-template-columns: 1fr
     position: relative
+    max-width: 1920px
+    margin-inline: auto
     @include break(lg)
         position: static
-        display: grid
         grid-template-columns: 1fr 0fr 3fr
     
     aside
@@ -26,13 +28,7 @@
         transform: translateY(84%)
         transition: transform 0.5s ease-in-out
         &:has(input:checked)
-            transform: translateY(18%)
-        @include break(sm)
-            &:has(input:checked)
-                transform: translateY(21%)
-        @include break(md)
-            &:has(input:checked)
-                transform: translateY(41%)
+            transform: translateY(320px)
         
         @include break(lg)
             position: static
@@ -54,6 +50,7 @@
             z-index: 2
             appearance: none
             outline: none
+            cursor: pointer
             &:checked + .arrowUp
                 transform: translateX(-50%) rotate(180deg)
                 transform-origin: center
