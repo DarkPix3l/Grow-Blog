@@ -13,3 +13,7 @@ $breakpoints: (
 @mixin break($breakpoint)
   @media (min-width: map.get($breakpoints, $breakpoint))
     @content
+
+@mixin smallLaptop()
+  @media (min-width: map.get($breakpoints, "lg")) and (max-width: map.get($breakpoints, "xl") - 1px)
+    @content
