@@ -3,7 +3,7 @@ import { test, expect, Locator } from "@playwright/test";
 test("user visit the homepage", async ({ page }) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
 
-  await page.goto("http://localhost:3000", { waitUntil: "load" });
+  await page.goto("http://localhost:3000", { timeout: 10000 });
   expect(page).toBeTruthy();
 
   // header
