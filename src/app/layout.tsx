@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '../../css/global.css'
 import { Inria_Sans } from 'next/font/google'
-import Header from './_components/_Header/Header'
+import Header from './_components/header/Header'
 
 const inriaSans = Inria_Sans({
     subsets: ['latin'],
