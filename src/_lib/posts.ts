@@ -23,7 +23,7 @@ export type Post = {
     avatar?: string;
     cover?: string;
   };
-  category: string;
+  categories: string[];
   content: string;
 };
 
@@ -60,7 +60,7 @@ export function getPostBySlug(slug: string) {
             : undefined,
         }
       : undefined,
-    category: String(data.category),
+    categories: [String(data.category)],
     content,
   };
 
