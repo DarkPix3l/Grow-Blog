@@ -1,10 +1,19 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Config options here
-  typescript: {
-    ignoreBuildErrors: true
-  }
-};
+    // Config options here
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.ctfassets.net',
+                pathname: '/**',
+            },
+        ],
+    },
+}
 
-export default nextConfig;
+export default nextConfig
