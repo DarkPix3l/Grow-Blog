@@ -1,4 +1,4 @@
-import { getPostBySlug } from '@/_lib/posts'
+import { getPostBySlug } from '@/_lib/local-posts'
 import parser from '@/_lib/parser'
 import style from './page.module.sass'
 import Image from 'next/image'

@@ -1,5 +1,5 @@
 import style from "./NextArticle.module.sass";
-import { getRandomPosts } from "@/_lib/posts";
+import { getRandomPosts } from "@/_lib/local-posts";
 import Image from "next/image";
 import Link from "next/link";
 
