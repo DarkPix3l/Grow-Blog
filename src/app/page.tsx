@@ -1,11 +1,17 @@
 import styles from './page.module.sass'
-import { getLatestPosts } from '@/_lib/posts'
 import ArticleCard from './_components/_article/ArticleCard'
 import InsetContainer from './_components/_InsetContainer/InsetContainer'
 import CtaBar from './_components/_CTAbar/CtaBar'
+import { getBlogEntries } from '@/_lib/contentful-posts'
+import { mapPost, Post } from '@/types/types'
 
-export default function Home() {
-    const latestPosts = getLatestPosts(4)
+export default async function Home() {
+    const data = await getBlogEntries()
+    const latestPosts = data.items
+        .map(mapPost)
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
+        .slice(0, 4)
+
     return (
         <main>
             <InsetContainer className={styles.inset_homepage}>
@@ -26,16 +32,7 @@ export default function Home() {
                     <h2>Latest Posts</h2>
                     <div className={styles.latestPosts}>
                         {latestPosts.map((post) => (
-                            <ArticleCard
-                                key={post.slug}
-                                category={post.category ?? 'General'}
-                                title={post.title}
-                                authorImg={post.author.picture}
-                                authorName={post.author.name}
-                                summary={post.excerpt}
-                                cover={post.coverImage}
-                                slug={post.slug}
-                            />
+                            <ArticleCard key={post.slug} {...post} />
                         ))}
                     </div>
                 </section>

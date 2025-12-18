@@ -16,12 +16,16 @@
     .card_body
         padding: 20px
         .card_category
-            width: fit-content
-            height: fit-content
-            padding: 0.4rem 0.7rem
-            border: 1px solid $foreground
-            border-radius: $radius-main
+            display: flex
+            align-items: center
+            flex-wrap: wrap
+            gap: 0.5rem
             p
+                width: fit-content
+                height: fit-content
+                padding: 0.4rem 0.7rem
+                border: 1px solid $foreground
+                border-radius: $radius-main
                 text-transform: uppercase
         h3
             margin-block: 1rem
