@@ -1,21 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 
 export function useConditionalRendering(query: string): boolean {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
-
-    const mediaQueryList = window.matchMedia(query);
-    setMatches(mediaQueryList.matches);
-
-    const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
-    mediaQueryList.addEventListener("change", listener);
-
-    return () => mediaQueryList.removeEventListener("change", listener);
-  }, [query]);
-
-  return matches;
+  return useSyncExternalStore(
+    //The Subscribe function: Tells React how to listen for changes
+    (callback) => {
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", callback);
+      return () => mql.removeEventListener("change", callback);
+    },
+    //The Client Snapshot: How to get the value when on the client
+    () => window.matchMedia(query).matches,
+    //The Server Snapshot: What value to show during SSR/Hydration
+    () => false 
+  );
 }

@@ -3,7 +3,7 @@ import ArticleCard from './_components/_article/ArticleCard'
 import InsetContainer from './_components/_InsetContainer/InsetContainer'
 import CtaBar from './_components/_CTAbar/CtaBar'
 import { getBlogEntries } from '@/_lib/contentful-posts'
-import { mapPost, Post } from '@/types/types'
+import { mapPost } from '@/types/types'
 
 export default async function Home() {
     const data = await getBlogEntries()

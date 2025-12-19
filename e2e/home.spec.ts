@@ -1,4 +1,4 @@
-import { test, expect, Locator } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 test("user visit the homepage", async ({ page }) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
