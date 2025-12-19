@@ -1,5 +1,5 @@
 import { client } from '@/_lib/contentful-client'
-import { PostQueryResult, Post } from '@/types/types'
+import { PostQueryResult, Post, MappedPost, mapPost } from '@/types/types'
 
 // get all posts
 export const getBlogEntries = async (): Promise<PostQueryResult> => {
@@ -27,4 +27,29 @@ export const getBlogEntryBySlug = async (
     }
 
     return queryResult.items[0] as unknown as Post
+}
+
+// get random posts
+export const getRandomPosts = async (
+    limit: number,
+    currentSlug: string
+): Promise<MappedPost[]> => {
+    //  the result is an object { items: Post[] })
+    const result = await getBlogEntries()
+
+    // map can't work unless the property is extracted
+    // We use result.items because getBlogEntries returns a PostQueryResult
+    const allPosts = result.items.map((post) => mapPost(post))
+
+    // filter for excluding the current post, same as before
+    const filteredPosts = allPosts.filter((post) => post.slug !== currentSlug)
+
+    // Shuffle (Fisher-Yates) - same as before
+    const tempPosts = [...filteredPosts]
+    for (let i = tempPosts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[tempPosts[i], tempPosts[j]] = [tempPosts[j], tempPosts[i]]
+    }
+
+    return tempPosts.slice(0, limit)
 }

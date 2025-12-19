@@ -1,10 +1,10 @@
 import style from "./NextArticle.module.sass";
-import { getRandomPosts } from "@/_lib/local-posts";
+import { getRandomPosts } from "@/_lib/contentful-posts";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NextArticle({ currentSlug }: { currentSlug: string }) {
-  const randomPost = getRandomPosts(2, currentSlug);
+export default async function NextArticle({ currentSlug }: { currentSlug: string }) {
+  const randomPost = await getRandomPosts(2, currentSlug);
   return (
     <div className={style.random_article_block}>
       <h3>You may also like</h3>
