@@ -13,6 +13,7 @@ export type Post = {
         authorPicture: Asset
         categories: string[]
         content: Document
+        photoCredit: string
     }
 }
 
@@ -28,6 +29,7 @@ export function mapPost(item: Post) {
         authorPicture: `https:${item.fields.authorPicture?.fields?.file?.url}`,
         categories: item.fields.categories || [],
         content: item.fields.content,
+        photoCredit: item.fields.photoCredit,
     }
 }
 export type MappedPost = ReturnType<typeof mapPost>

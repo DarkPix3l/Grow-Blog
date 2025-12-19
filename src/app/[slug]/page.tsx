@@ -65,10 +65,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                                 />
                             </div>
                             <figcaption>
-                                <em>
-                                    Photo credit:{' '}
-                                    {post.photoCredit?.cover ?? 'Unknown'}
-                                </em>
+                                <em>{post.photoCredit ?? ''}</em>
                             </figcaption>
                         </figure>
                         <div className={style.article_text}>
