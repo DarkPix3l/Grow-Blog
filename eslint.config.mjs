@@ -1,25 +1,27 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const eslintConfig = defineConfig([
+  // 1. Load the Next.js configs directly
+  ...nextVitals,
+  ...nextTypescript,
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  // 2. Global ignores (in Next 16, these should be in the array)
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "node_modules/**"
+  ]),
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // 3. Add any custom rules here
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
-  },
-];
+    rules: {
+      // '@typescript-eslint/no-explicit-any': 'warn',
+    }
+  }
+]);
 
 export default eslintConfig;
