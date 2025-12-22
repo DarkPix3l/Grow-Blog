@@ -53,21 +53,21 @@ export default function MobileHeader() {
                 {isMounted && (
                     <Nav className={style.m_nav}>
                         <div className={style.primay_button_group}>
-                            <Button goTo="/" variant="primary-top">
+                            <Button goTo="/" variant="primary-top" ariaLabel='placeholder'>
                                 Link 1
                             </Button>
-                            <Button goTo="#" variant="primary-top">
+                            <Button goTo="#" variant="primary-top" ariaLabel='placeholder'>
                                 Link 2
                             </Button>
-                            <Button goTo="/" variant="primary-top">
+                            <Button goTo="/" variant="primary-top" ariaLabel='placeholder'>
                                 Link 3
                             </Button>
                         </div>
                         <div className={style.secondary_button_group}>
-                            <Button goTo="/" variant="secondary-inset">
+                            <Button goTo="/" variant="secondary-inset" ariaLabel='language'>
                                 <TfiWorld />
                             </Button>
-                            <Button goTo="/" variant="secondary-inset">
+                            <Button goTo="/" variant="secondary-inset" ariaLabel='dark-light mode'>
                                 <BsSun />
                             </Button>
                         </div>
