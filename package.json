@@ -9,7 +9,7 @@
         "start": "next start",
         "lint": "eslint .",
         "format": "prettier --write .",
-        "test": "jest"
+        "test": "jest --watch"
     },
     "dependencies": {
         "@contentful/rich-text-react-renderer": "^16.1.6",
