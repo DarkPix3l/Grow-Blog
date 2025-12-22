@@ -5,9 +5,9 @@ import NextArticle from '../_components/NextArticle/NextArticle'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 import Link from 'next/link'
 import { IoIosArrowDropupCircle } from 'react-icons/io'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { getBlogEntryBySlug } from '@/_lib/contentful-posts'
 import { mapPost, ArticlePageProps } from '@/types/types'
+import MainArticle from '../_components/MainArticle/MainArticle'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params
@@ -16,10 +16,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
     // use the adapter to map
     const post = mapPost(rawPost!)
+
     return (
         <main className={style.maincontainer}>
             <InsetContainer>
-                <article className={style.main_article}>
+                <div className={style.main_article}>
                     <aside>
                         <input type="checkbox" name="slideUp" id="slideUp" />
                         <IoIosArrowDropupCircle
@@ -53,26 +54,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         </Link>
                     </aside>
                     <hr />
-                    <section className={style.right_section}>
-                        <figure>
-                            <div className={style.img_mask}>
-                                <Image
-                                    src={post.coverImage}
-                                    alt={`${post.title}image`}
-                                    width={100}
-                                    height={100}
-                                    sizes="100%"
-                                />
-                            </div>
-                            <figcaption>
-                                <em>{post.photoCredit ?? ''}</em>
-                            </figcaption>
-                        </figure>
-                        <div className={style.article_text}>
-                            {documentToReactComponents(post.content)}
-                        </div>
-                    </section>
-                </article>
+                    {/* preferred props drilling instead of second fetching in children */}
+                    <MainArticle post={post} />
+                </div>
             </InsetContainer>
         </main>
     )

@@ -48,3 +48,8 @@ export interface ArticlePageProps {
         slug: string
     }
 }
+
+//type for Mainarticle component
+export interface MainArticleProps {
+    post: MappedPost | null
+}
