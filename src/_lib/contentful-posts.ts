@@ -5,6 +5,7 @@ import { PostQueryResult, Post, MappedPost, mapPost } from '@/types/types'
 export const getBlogEntries = async (): Promise<PostQueryResult> => {
     const entries = await client.getEntries({
         content_type: 'grow-blog',
+        limit: 10,
     })
 
     return entries as unknown as PostQueryResult
