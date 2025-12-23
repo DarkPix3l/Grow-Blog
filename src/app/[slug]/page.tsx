@@ -8,6 +8,7 @@ import { IoIosArrowDropupCircle } from 'react-icons/io'
 import { getBlogEntryBySlug } from '@/_lib/contentful-posts'
 import { mapPost, ArticlePageProps } from '@/types/types'
 import MainArticle from '../_components/MainArticle/MainArticle'
+import { ArticleHeading } from '@/app/_components/ArticleHeading/ArticleHeading'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params
@@ -17,29 +18,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     // use the adapter to map
     const post = mapPost(rawPost!)
 
+    /* in this case, preferred props drilling instead of second fetching in children */
+
     return (
         <main className={style.maincontainer}>
             <InsetContainer>
                 <div className={style.main_article}>
                     <aside>
                         <input type="checkbox" name="slideUp" id="slideUp" />
-                        <IoIosArrowDropupCircle
-                            size={50}
-                            className={style.arrowUp}
-                        />
+                        <IoIosArrowDropupCircle size={50} className={style.arrowUp} />
 
-                        <div>
-                            <h2>{post.title}</h2>
-                            <div className={style.author_infos}>
-                                <Image
-                                    src={post.authorPicture}
-                                    alt={`${post.authorName} image`}
-                                    width={40}
-                                    height={40}
-                                />
-                                <p>{`written by ${post.authorName}`}</p>
-                            </div>
-                        </div>
+                        <ArticleHeading post={post} />
                         <div>
                             <div className={style.deko}>
                                 <div className={style.circle}></div>
@@ -54,7 +43,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         </Link>
                     </aside>
                     <hr />
-                    {/* preferred props drilling instead of second fetching in children */}
                     <MainArticle post={post} />
                 </div>
             </InsetContainer>
