@@ -1,4 +1,4 @@
-import { MappedPost, mapPost } from '@/types/types'
+import { MappedPost } from '@/types/types'
 import style from './ArticleHeading.module.sass'
 import Image from 'next/image'
 
