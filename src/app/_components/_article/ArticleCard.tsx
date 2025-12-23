@@ -4,14 +4,7 @@ import { FiArrowRightCircle } from 'react-icons/fi'
 import Link from 'next/link'
 import { MappedPost } from '@/types/types'
 
-export default function ArticleCard({
-    categories,
-    title,
-    authorPicture,
-    authorName,
-    slug,
-    date,
-}: MappedPost) {
+export default function ArticleCard({ categories, title, authorPicture, authorName, slug }: MappedPost) {
     return (
         <Link href={`/${slug}`} className={style.clickable}>
             <article className={style.card}>
@@ -26,12 +19,7 @@ export default function ArticleCard({
                     <div>
                         <h3 data-testid="cardTitle">{title}</h3>
                         <div className={style.author_infos}>
-                            <Image
-                                src={authorPicture}
-                                alt={`${authorName}, author picture`}
-                                width={40}
-                                height={40}
-                            />
+                            <Image src={authorPicture} alt={`${authorName}, author picture`} width={40} height={40} />
                             <p>{`written by ${authorName}`}</p>
                         </div>
                     </div>
