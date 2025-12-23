@@ -1,5 +1,4 @@
 import style from './page.module.sass'
-import Image from 'next/image'
 import InsetContainer from '../_components/_InsetContainer/InsetContainer'
 import NextArticle from '../_components/NextArticle/NextArticle'
 import { FiArrowLeftCircle } from 'react-icons/fi'
@@ -9,6 +8,7 @@ import { getBlogEntryBySlug } from '@/_lib/contentful-posts'
 import { mapPost, ArticlePageProps } from '@/types/types'
 import MainArticle from '../_components/MainArticle/MainArticle'
 import { ArticleHeading } from '@/app/_components/ArticleHeading/ArticleHeading'
+import { Divider } from '@/app/_components/Divider/Divider'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params
@@ -30,11 +30,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
                         <ArticleHeading post={post} />
                         <div>
-                            <div className={style.deko}>
-                                <div className={style.circle}></div>
-                                <div className={style.line}></div>
-                                <div className={style.circle}></div>
-                            </div>
+                            <Divider orientation="horizontal" flexDir="row" />
                             <NextArticle currentSlug={post.slug} />
                         </div>
                         <Link href="/" className={style.inset}>
@@ -42,7 +38,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                             <p>Back to Home</p>
                         </Link>
                     </aside>
-                    <hr />
+                    <Divider orientation="vertical" flexDir="column" deko={false} />
                     <MainArticle post={post} />
                 </div>
             </InsetContainer>
