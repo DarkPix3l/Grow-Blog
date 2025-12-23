@@ -1,12 +1,14 @@
-h2
-    margin-bottom: 0.75rem
-    text-align: left
+@use '../../styles/_variables' as *
+.article_heading
+    h2
+        margin-bottom: 0.75rem
+        text-align: left
 
-.author_infos
-    display: flex
-    align-items: center
-    gap: 0.5rem
-    img
-        border-radius: $radius-main
-        aspect-ratio: 1
-        border: 1px solid $foreground
+    .author_infos
+        display: flex
+        align-items: center
+        gap: 0.5rem
+        img
+            border-radius: $radius-main
+            aspect-ratio: 1
+            border: 1px solid $foreground

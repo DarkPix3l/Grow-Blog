@@ -8,7 +8,7 @@ export async function ArticleHeading({ post }: { post: MappedPost | null }) {
         return <p>The title could not be found.</p>
     }
     return (
-        <div>
+        <div className={style.article_heading}>
             <h2>{post.title}</h2>
             <div className={style.author_infos}>
                 <Image
