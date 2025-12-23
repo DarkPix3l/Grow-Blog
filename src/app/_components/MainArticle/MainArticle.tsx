@@ -7,13 +7,7 @@ import ErrorComp from '../NotFoundComponent/NotFoundComponent'
 export default async function MainArticle({ post }: MainArticleProps) {
     // internal error handling
     if (!post) {
-        return (
-            <ErrorComp
-                imgH={150}
-                imgW={150}
-                errorMessage="The article could not be found."
-            />
-        )
+        return <ErrorComp imgH={150} imgW={150} errorMessage="The article could not be found." />
     }
 
     return (
@@ -26,15 +20,15 @@ export default async function MainArticle({ post }: MainArticleProps) {
                         width={100}
                         height={100}
                         sizes="100%"
+                        loading="eager"
+                        priority
                     />
                 </div>
                 <figcaption>
                     <em>{post.photoCredit ?? ''}</em>
                 </figcaption>
             </figure>
-            <div className={style.article_text}>
-                {documentToReactComponents(post.content)}
-            </div>
+            <div className={style.article_text}>{documentToReactComponents(post.content)}</div>
         </article>
     )
 }
