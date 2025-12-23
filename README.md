@@ -1,140 +1,99 @@
+# 🌱 Grow-Blog V2
 
-# 💻 Grow-Blog: A Minimalist Static Blog Generator
+Grow-Blog is a modern, CMS-driven blog platform built with Next.js App Router and Contentful.
+It focuses on resilience, performance, and clean component architecture, while keeping the UI minimal and developer-friendly.
 
-Grow-Blog is a **fast**, **minimalist**, and **developer-focused** static site generator designed specifically for creating simple, responsive blogs. Stop worrying about databases, servers, and complicated CMS setups—just write your content in Markdown and let Grow-Blog handle the rest.
-Grow-Blog utilizes a unique blend of **Neumorphism (Soft UI)** and a **Modern Tech aesthetic**.
+The project evolved from a static prototype into a fully dynamic blog powered by a headless CMS, with strong error handling and graceful UI fallbacks.
 
 ![Grow-Blog Homepage Preview](https://gretamacri.com/assets/img/projects/project2/2_homepage/2_growblog_homepage_1920.webp)
 
----
 
-###  Key Features
+## ✨ Key Features
 
-* **Zero Database:** Generates a complete, ready-to-deploy static website.
-* **Markdown Focused:** Write all your content using easy, portable Markdown files.
-* **Rapid Development:** Designed for quick iteration and easy customization.
-* **Built for Speed:** Static sites are inherently fast, providing excellent performance and SEO.
+    - Headless CMS (Contentful)
+        - Content is fetched dynamically from Contentful — no local markdown files.
 
----
+    - Next.js App Router
+        - Server Components, async pages, and optimized data fetching.
+
+    - Resilient UI Architecture
+        - Pages don’t crash when content is missing:
+
+    - Component-level error handling
+        - Graceful fallbacks (NotFoundComponent, internal guards)
+
+    - Performance-Focused
+        - Server-side rendering
+        - Reduced redundant fetching (props passed instead of refetching)
+        - Optimized images (next/image)
 
 
-###  Technologies Used
+## Tech Stack
 
-| Technology | Purpose |  |
-| :--- | :--- | :--- | 
-| **Node.js** | Runtime Environment | 
-| **NextJs** | Framework of choice | 
-| **Gray-Matter** | Parsing Markdown files and extracting **Frontmatter** | 
-| **Remark** | Converting Markdown post body content into final HTML |
-| **SASS** 	| Styling |
-| **Playwright** 	| End-to-End (E2E) testing framework |
- ---
+| Technology               | Purpose      |
+| ------------------------ | ------------ |
+| **Next.js (App Router)** | Framework    |
+| **TypeScript**           | Type safety  |
+| **Contentful**           | Headless CMS |
+| **SASS / CSS Modules**   | Styling      |
+| **Netlify**              | Deployment   |
+| **ESLint**               | Code quality |
+| **Playwright**           | E2E testing  |
 
-<br><br>
 
-## Getting Started
+## Prerequisites
 
-Follow these steps to get Grow-Blog up and running on your local machine.
+- Node.js ≥ 22 recommended
+- A Contentful Space with:
+    - Blog post content model
+    - Access token
 
-### Prerequisites
+## 🔐 Environment Variables
 
-You must have **Node.js** (version 16 or higher is recommended) installed on your system.
+This project requires Contentful credentials.
+Create a .env.local file:
+```bash
+SPACE_ID=your_contentful_space_id
+ACCESS_TOKEN=your_contentful_delivery_token
 
-### Installation
+```
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/DarkPix3l/Grow-Blog.git](https://github.com/DarkPix3l/Grow-Blog.git)
-    ```
+>## ⚠️ Important
+>
+>- Do NOT prefix these with NEXT_PUBLIC_
+>- These are server-only secrets
+>- Never commit .env.local
+>
 
-2.  **Navigate and Install Dependencies:**
-    ```bash
-    cd Grow-Blog
-    npm install
-    ```
-
-### Local Development
-
-Run the development script to build the site and start a local server with file watching for live updates:
-
+## 🧪 Local Development
 ```bash
 npm run dev
 ```
 
-
-## Writing Content
-
-All blog posts are written in standard Markdown format and stored in the **`posts/`** directory.
-
-### Post Structure
-
-Every post file requires **Frontmatter**—metadata placed at the very top of the file, enclosed by triple dashes (`---`). This data is used to generate the index page and post headers.
-
-| Field | Description | Required? |
-| :--- | :--- | :--- |
-| **`title`** | The main title of the blog post. | Yes |
-| **`date`** | The date of publication (e.g., `YYYY-MM-DD`). | Yes |
-| **`tags`** | A comma-separated list of keywords for categorization. | No |
+App runs at: http://localhost:3000
 
 
-```markdown
----
-title: "My First Grow-Blog Post"
-date: "2025-10-27"
-tags: "getting-started, tutorial"
----
+## Project Evolution (v2)
 
-Welcome to my new blog! This content is written in Markdown. 
-You can use **bold** text, *italics*, and [links](https://example.com).
+Grow-Blog started as a local, file-based blog prototype, where posts were read from Markdown files at build time.
+This repository represents Grow-Blog v2, a major architectural evolution.
 
-## Subheading Example
+What Changed
 
-This section covers basic usage.
-
-```
-
-## Testing
-
-**End-to-End (E2E) testing** were made using ** Playwright **
-
-### Running Tests
-
-To run the comprehensive test suite locally:
-
-1.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-2.  In a separate terminal, run the tests:
-    ```bash
-    npx playwright test
-    ```
-
-### Generating New Tests
-Playwright includes a powerful inspector tool, **Codegen**, which records your browser actions. This feature helps quickly generate new test code and generating locators.
-
-example:
-```bash
-npx playwright codegen [url]
-
-```
-That's perfectly fine! Since you haven't deployed it yet, we can draft a standard **Deployment** section that covers the necessary steps for any static site generator, giving you clear instructions for when you're ready.
-
-Here is the draft for the **Deployment** section, ready to be added to your README:
+| v1 (Original)                 | v2 (Current)                    |
+| ----------------------------- | ------------------------------- |
+| Local Markdown files          | Headless CMS (Contentful)       |
+| Static content reading        | Dynamic server-side fetching    |
+| Build-time content            | Runtime CMS integration         |
+| Tight coupling page ↔ content | Decoupled, resilient components |
 
 
+## Why the Migration Matters
 
-## Deployment
-
-Once you've finished developing and writing your posts, deployment is the final step.
-
-### 1. Build the Site
-
-Run the production build script:
-
-```
-npm run build
-
-```
-
-This command outputs the complete, ready-to-publish static site into the **`out/`** folder (or check your build script's output if the directory name differs).
+- Real CMS workflow (non-dev content editing)
+- No rebuild required for content update
+- Better security
+- Cleaner separation of concerns
+- Pages fetch data
+- Components render data
+- Components fail gracefully
