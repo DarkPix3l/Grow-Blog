@@ -11,13 +11,18 @@ export async function ArticleHeading({ post }: { post: MappedPost | null }) {
         <div className={style.article_heading}>
             <h2>{post.title}</h2>
             <div className={style.author_infos}>
-                <Image
-                    src={post.authorPicture}
-                    alt={`${post.authorName} image`}
-                    width={40}
-                    height={40}
-                />
-                <p>{`written by ${post.authorName}`}</p>
+                <Image src={post.authorPicture} alt={`${post.authorName} image`} width={40} height={40} />
+                <div>
+                    <p>{`written by ${post.authorName}`}</p>
+                    <p>
+                        Posted on{' '}
+                        {new Date(post.date).toLocaleDateString('en-UK', {
+                            year: 'numeric',
+                            day: 'numeric',
+                            month: 'long',
+                        })}
+                    </p>
+                </div>
             </div>
         </div>
     )

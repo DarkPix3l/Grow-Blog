@@ -33,14 +33,6 @@ export default function ArticleCard({
                                 height={40}
                             />
                             <p>{`written by ${authorName}`}</p>
-                            <p>
-                                Posted on{' '}
-                                {new Date(date).toLocaleDateString('en-UK', {
-                                    year: 'numeric',
-                                    day: 'numeric',
-                                    month: 'long',
-                                })}
-                            </p>
                         </div>
                     </div>
                     <div className={style.dynamic_space}></div>
