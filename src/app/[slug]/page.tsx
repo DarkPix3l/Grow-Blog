@@ -2,13 +2,13 @@ import style from './page.module.sass'
 import InsetContainer from '../_components/_InsetContainer/InsetContainer'
 import NextArticle from '../_components/NextArticle/NextArticle'
 import { FiArrowLeftCircle } from 'react-icons/fi'
-import Link from 'next/link'
 import { IoIosArrowDropupCircle } from 'react-icons/io'
 import { getBlogEntryBySlug } from '@/_lib/contentful-posts'
 import { mapPost, ArticlePageProps } from '@/types/types'
 import MainArticle from '../_components/MainArticle/MainArticle'
 import { ArticleHeading } from '@/app/_components/ArticleHeading/ArticleHeading'
 import { Divider } from '@/app/_components/Divider/Divider'
+import Button from '../_components/Button/Button'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params
@@ -33,10 +33,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                             <Divider orientation="horizontal" flexDir="row" />
                             <NextArticle currentSlug={post.slug} />
                         </div>
-                        <Link href="/" className={style.inset}>
+                        <Button variant="go-back-btn-inset" goTo="/" ariaLabel="go back button">
                             <FiArrowLeftCircle size={32} />
                             <p>Back to Home</p>
-                        </Link>
+                        </Button>
                     </aside>
                     <Divider orientation="vertical" flexDir="column" deko={false} />
                     <MainArticle post={post} />

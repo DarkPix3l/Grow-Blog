@@ -2,7 +2,7 @@ import Link from "next/link";
 import style from "./Button.module.sass";
 
 interface ButtonProps {
-  variant?: "wide" | "circle" | "primary-inset" | "primary-top" | "secondary-inset" | "secondary-top";
+  variant?: "wide" | "circle" | "primary-inset" | "primary-top" | "secondary-inset" | "secondary-top" | "go-back-btn-inset" | "go-back-btn-top";
   icon?: React.ReactNode;
   children?: React.ReactNode;
   goTo: string;
