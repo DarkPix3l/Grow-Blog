@@ -9,17 +9,22 @@ import MainArticle from '../_components/MainArticle/MainArticle'
 import { ArticleHeading } from '@/app/_components/ArticleHeading/ArticleHeading'
 import { Divider } from '@/app/_components/Divider/Divider'
 import Button from '../_components/Button/Button'
+import { notFound } from 'next/navigation'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = await params
+
     // get the raw post
     const rawPost = await getBlogEntryBySlug(slug)
 
+    if (!rawPost) {
+        notFound()
+    }
+
     // use the adapter to map
-    const post = mapPost(rawPost!)
+    const post = mapPost(rawPost)
 
     /* in this case, preferred props drilling instead of second fetching in children */
-
     return (
         <main className={style.maincontainer}>
             <InsetContainer>
