@@ -1,0 +1,101 @@
+@use '../../styles/_variables' as *
+@use '../../styles/_breakpoints' as *
+
+.clickable
+    position: relative
+    perspective: 1000px
+
+    &:hover
+        .card
+            transform: rotateY(180deg)
+            opacity: 0
+        .back
+            transform: rotateY(0deg)
+            opacity: 1
+
+    // The shared styles for both faces
+    .card, .back
+        display: grid
+        grid-template-rows: auto 1fr auto
+        position: absolute
+        inset: 0
+        width: 100%
+        border-top-left-radius: $radius-main
+        border-bottom-right-radius: $radius-main
+        overflow: hidden
+        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275)
+        transition-duration: .5s
+        transition-property: transform, opacity
+
+    // Front Side
+    .card
+        border: 2px solid $foreground
+        z-index: 2
+        transform: rotateY(0deg)
+        background-color: $articleCard-bg
+        opacity: 1
+
+    // Back Side with internal styling
+    .back
+        border: 2px solid $background
+        z-index: 1
+        transform: rotateY(180deg)
+        background-color: $articleCard-bg
+        opacity: 0
+        > *:not(img)
+            z-index: 2
+        &::after
+            content: ''
+            inset: 0
+            position: absolute
+            width: 101%
+            height: 101%
+            background-color: rgba(0, 0, 0, 0.7)
+        .card_body .card_category > p
+            border: 1px solid $background
+        img
+            object-fit: cover
+        p
+            color: $background
+        .card_action
+            border: none
+            svg
+                color: $background
+        .excerpt
+            margin-block: 1rem
+
+    // Internal .card styling
+    .card_body
+        padding: 20px
+        display: grid
+        grid-template-rows: subgrid
+        grid-row: span 3
+        .card_category
+            display: flex
+            flex-wrap: wrap
+            gap: 0.5rem
+            
+            p
+                padding: 0.4rem 0.7rem
+                border: 1px solid $foreground
+                border-radius: $radius-main
+                text-transform: uppercase
+        
+        h3
+            margin-block: 1rem
+            text-align: left
+        .author_infos
+            display: flex
+            align-items: center
+            gap: 0.5rem
+            img
+                border-radius: $radius-main
+                border: 1px solid $foreground
+
+    .card_action
+        padding: 20px
+        border-top: 2px solid $foreground
+        display: flex
+        justify-content: space-between
+        align-items: center
+
