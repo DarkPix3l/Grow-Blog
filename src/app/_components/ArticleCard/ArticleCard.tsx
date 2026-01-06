@@ -1,30 +1,43 @@
+// ArticleCard.tsx - Multipurpose card component
+// Variants: 'flip' (3D backface with bg-image & excerpt) | 'static' (Standard card)
+// Layouts: 'full' (Latest) | 'compact' (Weather-mood) | 'mini' (categories)
+
 import Image from 'next/image'
 import style from './ArticleCard.module.sass'
 import { FiArrowRightCircle } from 'react-icons/fi'
 import Link from 'next/link'
 import { MappedPost } from '@/types/types'
 
+interface ArticleCardProps extends MappedPost {
+  variant: 'flip' | 'static'
+  layout: 'full' | 'compact' | 'mini'
+}
+
 export default function ArticleCard({
-  categories,
   title,
-  authorPicture,
-  authorName,
   slug,
-  coverImage,
   excerpt,
-}: MappedPost) {
+  coverImage,
+  authorName,
+  authorPicture,
+  categories,
+  variant = 'flip',
+  layout = 'full',
+}: ArticleCardProps) {
   return (
-    <Link href={`/${slug}`} className={style.clickable}>
+    <Link href={`/${slug}`} className={style.clickable} data-layout={layout} data-variant={variant}>
       {/* FRONT */}
       <article className={style.card}>
         <div className={style.card_body}>
-          <div className={style.card_category}>
-            {categories.map((cat: string) => (
-              <p data-testid="categoryField" key={cat}>
-                {cat}
-              </p>
-            ))}
-          </div>
+          {layout === 'full' ? (
+            <div className={style.card_category}>
+              {categories.map((cat: string) => (
+                <p data-testid="categoryField" key={cat}>
+                  {cat}
+                </p>
+              ))}
+            </div>
+          ) : null}
           <div>
             <h3 data-testid="cardTitle">{title}</h3>
             <div className={style.author_infos}>
@@ -33,32 +46,40 @@ export default function ArticleCard({
             </div>
           </div>
         </div>
-        <div className={style.card_action}>
-          <p>go to article</p>
-          <FiArrowRightCircle size={32} />
-        </div>
+        {layout === 'mini' ? null : (
+          <div className={style.card_action}>
+            <p>go to article</p>
+            <FiArrowRightCircle size={32} />
+          </div>
+        )}
       </article>
 
       {/* BACK */}
-      <article className={style.back}>
-        <div className={style.card_body}>
-          <div className={style.card_category}>
-            {categories.map((cat: string) => (
-              <p data-testid="categoryField" key={cat}>
-                {cat}
-              </p>
-            ))}
+      {variant === 'flip' ? (
+        <article className={style.back}>
+          <div className={style.card_body}>
+            {layout === 'full' ? (
+              <div className={style.card_category}>
+                {categories.map((cat: string) => (
+                  <p data-testid="categoryField" key={cat}>
+                    {cat}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+            <div>
+              <p className={style.excerpt}>{excerpt}</p>
+            </div>
           </div>
-          <div>
-            <p className={style.excerpt}>{excerpt}</p>
-          </div>
-        </div>
-        <Image src={coverImage} alt={`${title}, image`} fill />
-        <div className={style.card_action}>
-          <p>go to article</p>
-          <FiArrowRightCircle size={32} />
-        </div>
-      </article>
+          <Image src={coverImage} alt={`${title}, image`} fill />
+          {layout === 'mini' ? null : (
+            <div className={style.card_action}>
+              <p>go to article</p>
+              <FiArrowRightCircle size={32} />
+            </div>
+          )}
+        </article>
+      ) : null}
     </Link>
   )
 }
