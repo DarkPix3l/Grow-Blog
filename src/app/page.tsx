@@ -10,11 +10,11 @@ export default async function Home() {
   const latestPosts = data.items
     .map(mapPost)
     .sort((a, b) => b.date.getTime() - a.date.getTime())
-    .slice(0, 4)
+    .slice(0, 5)
 
   return (
     <main>
-      <InsetContainer className={styles.inset_homepage}>
+      <InsetContainer variant="fixed" className={styles.inset_homepage}>
         <div className={styles.wrapper}>
           <h1>GROW BLOG/_</h1>
           <div className={styles.separator}>

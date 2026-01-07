@@ -2,9 +2,8 @@
 @use './styles/_breakpoints' as *
 
 .inset_homepage
-    padding: 0.2rem
+    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
     @include break(xl)
-        padding: 1rem
         padding: $padding-insetContainer
     .wrapper
         padding-inline: 1rem
@@ -35,26 +34,19 @@
         flex-direction: column
         flex: 1
         min-height: 0
-        margin-block: 1rem
-
-        @include break(xl)
-            gap: 40px
         
         h2
             text-align: center
-            margin-bottom: 2rem
-            @include break(xl)
-                margin-bottom: 0
-            
-            
+            margin-top: 2rem
+            margin-bottom: 1rem
+   
     .latestPosts
         display: grid
-        grid-template-columns: repeat(4, 1fr)
+        grid-template-columns: repeat(5, 1fr)
         overflow-x: auto
         scroll-margin: 230px
         gap: 0.5rem
-        max-height: 600px
-        height: 100%
+        padding-block: 1rem
         scrollbar-width: none
         -ms-overflow-style: none
         &::-webkit-scrollbar

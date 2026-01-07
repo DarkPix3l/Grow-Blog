@@ -4,7 +4,13 @@
 .clickable
     position: relative
     perspective: 1000px
-
+    min-height: 350px
+    width: 254px
+    @include break(md)
+        width: 400px
+    @include break(xl)
+        height: 413px
+    
     &:hover
         .card:has(+ .back)
             transform: rotateY(180deg)
