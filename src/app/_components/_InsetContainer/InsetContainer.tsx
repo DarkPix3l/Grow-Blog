@@ -1,13 +1,11 @@
-import style from "./InsetContainer.module.sass";
+import style from './InsetContainer.module.sass'
 
 interface ContainerProps {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
+  variant?: 'fluid' | 'fixed'
 }
 
-export default function InsetContainer({
-  children,
-  className,
-}: ContainerProps) {
-  return <div className={`${style.page} ${className ?? ""}`}>{children}</div>;
+export default function InsetContainer({ children, className, variant="fluid" }: ContainerProps) {
+  return <div className={`${className ?? ''} ${style[variant]}`}>{children}</div>
 }
