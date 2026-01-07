@@ -1,9 +1,9 @@
 import styles from './page.module.sass'
-import InsetContainer from './_components/_InsetContainer/InsetContainer'
-import CtaBar from './_components/_CTAbar/CtaBar'
+import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
+import CtaBar from './_components/Layout/CTAbar/CtaBar'
 import { getBlogEntries } from '@/_lib/contentful-posts'
 import { mapPost } from '@/types/types'
-import ArticleCard from './_components/ArticleCard/ArticleCard'
+import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
 
 export default async function Home() {
   const data = await getBlogEntries()
@@ -30,7 +30,7 @@ export default async function Home() {
           <h2>Latest Posts</h2>
           <div className={styles.latestPosts}>
             {latestPosts.map((post) => (
-              <ArticleCard key={post.slug} {...post} variant = "flip" layout="full" />
+              <ArticleCard key={post.slug} {...post} variant="flip" layout="full" />
             ))}
           </div>
         </section>
