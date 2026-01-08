@@ -1,16 +1,13 @@
 import styles from './page.module.sass'
 import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
 import CtaBar from './_components/Layout/CTAbar/CtaBar'
-import { getBlogEntries } from '@/_lib/contentful-posts'
+import { getLatestPost } from '@/_lib/contentful-posts'
 import { mapPost } from '@/types/types'
 import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
 
 export default async function Home() {
-  const data = await getBlogEntries()
-  const latestPosts = data.items
-    .map(mapPost)
-    .sort((a, b) => b.date.getTime() - a.date.getTime())
-    .slice(0, 5)
+  const data = await getLatestPost()
+  const latestPosts = data.items.map(mapPost)
 
   return (
     <main>
