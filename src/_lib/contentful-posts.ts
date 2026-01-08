@@ -36,6 +36,18 @@ export const getLatestPost = async (): Promise<PostQueryResult> => {
   return entries as unknown as PostQueryResult
 }
 
+// get posts by category
+export const getPostsByCategory = async (cat: string): Promise<PostQueryResult> => {
+  const entries = await client.getEntries({
+    content_type: 'grow-blog',
+    order: ['-sys.createdAt'],
+    'fields.categories[in]': cat,
+    limit: 3,
+  })
+
+  return entries as unknown as PostQueryResult
+}
+
 // get random posts
 export const getRandomPosts = async (limit: number, currentSlug: string): Promise<MappedPost[]> => {
   //  the result is an object { items: Post[] })
