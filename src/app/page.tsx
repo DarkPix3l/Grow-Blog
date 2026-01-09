@@ -6,7 +6,12 @@ import { mapPost } from '@/types/types'
 import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
 import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
+import { Anton } from 'next/font/google'
 
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+})
 export default async function Home() {
   const latestPosts = (await getLatestPost()).items.map(mapPost)
   //fetch by categories
@@ -16,7 +21,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Section id='intro_section'>
+      <Section id={styles.intro_section}>
         <InsetContainer variant="fixed" className={styles.inset_homepage}>
           <div className={styles.wrapper}>
             <h1>GROW BLOG/_</h1>
@@ -39,8 +44,11 @@ export default async function Home() {
           </div>
         </InsetContainer>
       </Section>
-      <Section id="categories_section">
-        <InsetContainer>
+      <Section id={styles.categories_section}>
+        <InsetContainer className={styles.dark_inset}>
+          <h2 className={anton.className}>blog</h2>
+        </InsetContainer>
+        <InsetContainer className={styles.categories_container}>
           <PostRow title="Tech" posts={techPosts} />
           <PostRow title="NextJS" posts={nextjsPosts} />
           <PostRow title="Server" posts={serverPosts} />
