@@ -1,13 +1,17 @@
 import styles from './page.module.sass'
 import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
 import CtaBar from './_components/Layout/CTAbar/CtaBar'
-import { getLatestPost } from '@/_lib/contentful-posts'
+import { getLatestPost, getPostsByCategory } from '@/_lib/contentful-posts'
 import { mapPost } from '@/types/types'
 import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
+import PostRow from './_components/PostDisplay/PostRow/PostRow'
 
 export default async function Home() {
-  const data = await getLatestPost()
-  const latestPosts = data.items.map(mapPost)
+  const latestPosts = (await getLatestPost()).items.map(mapPost)
+  //fetch by categories
+  const techPosts = (await getPostsByCategory('tech')).items.map(mapPost)
+  const nextjsPosts = (await getPostsByCategory('nextjs')).items.map(mapPost)
+  const serverPosts = (await getPostsByCategory('server')).items.map(mapPost)
 
   return (
     <main>
@@ -31,6 +35,11 @@ export default async function Home() {
             ))}
           </div>
         </section>
+      </InsetContainer>
+      <InsetContainer>
+        <PostRow title="Tech" posts={techPosts} />
+        <PostRow title="NextJS" posts={nextjsPosts} />
+        <PostRow title="Server" posts={serverPosts} />
       </InsetContainer>
     </main>
   )
