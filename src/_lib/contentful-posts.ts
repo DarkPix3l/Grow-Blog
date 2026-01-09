@@ -30,7 +30,7 @@ export const getLatestPost = async (): Promise<PostQueryResult> => {
     content_type: 'grow-blog',
     order: ['-fields.date'],
     // order: ['-sys.createdAt'],
-    limit: 5,
+    limit: 4,
   })
 
   return entries as unknown as PostQueryResult

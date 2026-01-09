@@ -4,13 +4,6 @@
 .clickable
     position: relative
     perspective: 1000px
-    min-height: 350px
-    width: 254px
-    @include break(md)
-        width: 400px
-    @include break(xl)
-        height: 413px
-    
     &:hover
         .card:has(+ .back)
             transform: rotateY(180deg)
@@ -104,7 +97,16 @@
         display: flex
         justify-content: space-between
         align-items: center
-        
+
+    &[data-layout="full"]
+        min-height: 350px
+        width: 254px
+        @include break(md)
+            width: 350px
+        @include break(xl)
+            width: 100%
+            height: 470px
+
     &[data-layout="compact"]
         .card, .back
             grid-template-rows: 1fr
@@ -116,15 +118,17 @@
 
     &[data-layout="mini"]
         .card, .back
-            height: 126px
+            height: 135px
+            width: 300px
         .card
             position: relative
             display: block
         .card_body
             padding: 1rem
             h3
-                font-size: 1.4rem
-                margin-block: 0.7rem
+                font-size: 1.3rem
+                margin-block: unset
+                margin-bottom: 0.6rem
             
 
 
