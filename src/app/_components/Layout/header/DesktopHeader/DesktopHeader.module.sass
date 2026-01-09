@@ -14,15 +14,16 @@
     box-shadow: 1px 1px 10px 0px rgba(36, 36, 36, 0.5), inset 0 0 5px white
     position: fixed
     inset: 0
+    z-index: 10
     border-radius: 3rem
     @include break(xxl)
         max-width: $maxWidth-wrapper
     
-.headerWrapper
-    width: 90%
-    height: 90%
-    display: flex
-    align-items: center
-    justify-content: space-between
-    & nav
+    .headerWrapper
+        width: 90%
+        height: 90%
+        display: flex
         align-items: center
+        justify-content: space-between
+        & nav
+            align-items: center
