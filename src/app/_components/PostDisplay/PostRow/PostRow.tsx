@@ -12,11 +12,10 @@ interface PostRowProps {
 export default function PostRow({ title, posts }: PostRowProps) {
   return (
     <div className={style.row}>
-      <div className={style.labelSide}>
-        <h3>{title}</h3>
-        <Divider orientation="vertical" flexDir="column" deko={true} />
-      </div>
-      
+      <h3>{title}</h3>
+
+      <Divider orientation="vertical" flexDir="row" deko={false} />
+
       <div className={style.cardsSide}>
         {posts.map((post) => (
           <ArticleCard key={post.slug} {...post} variant="static" layout="mini" />
