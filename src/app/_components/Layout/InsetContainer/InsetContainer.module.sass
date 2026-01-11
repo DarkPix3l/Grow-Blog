@@ -4,14 +4,19 @@
     background-color: $primary
     border-radius: $radius-main
     box-shadow: $container-inset
-    max-width: $maxWidth-wrapper
-    margin: auto
     display: flex
     flex-direction: column
     overflow: hidden
+    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
+    @include break(xl)
+        padding: $padding-insetContainer
 .fixed
     @extend %inset_container
     min-height: calc( 100dvh - ($header-height + 1rem)) //screen height - header height - its padding
 .fluid
     @extend %inset_container
     height: 100%
+    max-width: $maxWidth-wrapper
+    margin: auto
+.pure
+    @extend %inset_container

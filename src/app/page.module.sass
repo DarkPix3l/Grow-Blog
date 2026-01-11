@@ -1,60 +1,56 @@
 @use './styles/_variables' as *
 @use './styles/_breakpoints' as *
 
-.inset_homepage
-    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
+.wrapper
+    padding-inline: 1rem
+    padding-top: 1rem
+    display: flex
+    flex-direction: column
+    gap: clamp(1.2rem, 5vw, 2rem)
     @include break(xl)
-        padding: $padding-insetContainer
-    .wrapper
-        padding-inline: 1rem
-        padding-top: 1rem
-        display: flex
-        flex-direction: column
-        gap: clamp(1.2rem, 5vw, 2rem)
-        @include break(xl)
-            padding-inline: 0
-            padding-top: 0
+        padding-inline: 0
+        padding-top: 0
 
-        .separator
-            border-block: 2px solid $foreground
-            text-align: left
-            padding-bottom: 1.2rem
-            margin: 1rem
-            @include break(md)
-                padding-block: 1.2rem
-                margin: 0
-            
-            p
-                display: none
-                @include break(md)
-                    display: block
-
-    .latest
-        display: flex
-        flex-direction: column
-        flex: 1
-        min-height: 0
+    .separator
+        border-block: 2px solid $foreground
+        text-align: left
+        padding-bottom: 1.2rem
+        margin: 1rem
+        @include break(md)
+            padding-block: 1.2rem
+            margin: 0
         
-        h2
-            text-align: center
-            margin-top: 2rem
-            margin-bottom: 1rem
-   
-    .latestPosts
-        display: grid
-        grid-template-columns: repeat(4, 1fr)
-        overflow-x: auto
-        scroll-margin: 230px
-        gap: 0.5rem
-        padding-block: 1rem
-        scrollbar-width: none
-        -ms-overflow-style: none
-        &::-webkit-scrollbar
+        p
             display: none
-        @include break(xl)
-            gap: 0.8rem
+            @include break(md)
+                display: block
 
-#categories_section
+.latest
+    display: flex
+    flex-direction: column
+    flex: 1
+    min-height: 0
+    
+    h2
+        text-align: center
+        margin-top: 2rem
+        margin-bottom: 1rem
+
+.latestPosts
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    overflow-x: auto
+    scroll-margin: 230px
+    gap: 0.5rem
+    padding-block: 1rem
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &::-webkit-scrollbar
+        display: none
+    @include break(xl)
+        gap: 0.8rem
+
+.categories_section
     display: grid
     grid-template-columns: 133px 1fr
     gap: $interface-gap

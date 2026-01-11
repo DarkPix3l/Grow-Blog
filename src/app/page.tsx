@@ -24,7 +24,7 @@ export default async function Home() {
   return (
     <main>
       <Section id="intro_section">
-        <InsetContainer variant="fixed" className={styles.inset_homepage}>
+        <InsetContainer variant="fluid">
           <div className={styles.wrapper}>
             <h1>GROW BLOG/_</h1>
             <div className={styles.separator}>
@@ -46,11 +46,11 @@ export default async function Home() {
           </div>
         </InsetContainer>
       </Section>
-      <Section id="categories_section">
-        <InsetContainer className={styles.dark_inset}>
+      <Section id="categories_section" className={styles.categories_section}>
+        <InsetContainer variant='pure' className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
         </InsetContainer>
-        <InsetContainer className={styles.categories_container}>
+        <InsetContainer variant='pure' className={styles.categories_container}>
           <PostRow title="Tech" posts={techPosts} />
           <PostRow title="NextJS" posts={nextjsPosts} />
           <PostRow title="Server" posts={serverPosts} />
