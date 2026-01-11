@@ -1,3 +1,5 @@
+//Main_Page
+
 import styles from './page.module.sass'
 import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
 import CtaBar from './_components/Layout/CTAbar/CtaBar'
@@ -21,7 +23,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Section id={styles.intro_section}>
+      <Section id="intro_section">
         <InsetContainer variant="fixed" className={styles.inset_homepage}>
           <div className={styles.wrapper}>
             <h1>GROW BLOG/_</h1>
@@ -44,7 +46,7 @@ export default async function Home() {
           </div>
         </InsetContainer>
       </Section>
-      <Section id={styles.categories_section}>
+      <Section id="categories_section">
         <InsetContainer className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
         </InsetContainer>
