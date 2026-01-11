@@ -9,6 +9,7 @@ import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
 import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
 import { Anton } from 'next/font/google'
+import { Divider } from './_components/Ui/Divider/Divider'
 
 const anton = Anton({
   weight: '400',
@@ -27,13 +28,13 @@ export default async function Home() {
         <InsetContainer variant="fluid">
           <div className={styles.wrapper}>
             <h1>GROW BLOG/_</h1>
-            <div className={styles.separator}>
-              <p>
-                A blog platform built for the world. Share your thoughts, tutorials, and stories, and let our tools
-                translate your content seamlessly. Write freely while your audience enjoys a clean, distraction-free
-                reading experience, always in their own language.
-              </p>
-            </div>
+            <Divider orientation="horizontal" deko={false} className={styles.separator} />
+            <p>
+              A blog platform built for the world. Share your thoughts, tutorials, and stories, and let our tools
+              translate your content seamlessly. Write freely while your audience enjoys a clean, distraction-free
+              reading experience, always in their own language.
+            </p>
+            <Divider orientation="horizontal" deko={false} className={styles.separator} />
             <CtaBar />
           </div>
           <div className={styles.latest}>
@@ -47,10 +48,10 @@ export default async function Home() {
         </InsetContainer>
       </Section>
       <Section id="categories_section" className={styles.categories_section}>
-        <InsetContainer variant='pure' className={styles.dark_inset}>
+        <InsetContainer variant="pure" className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
         </InsetContainer>
-        <InsetContainer variant='pure' className={styles.categories_container}>
+        <InsetContainer variant="pure" className={styles.categories_container}>
           <PostRow title="Tech" posts={techPosts} />
           <PostRow title="NextJS" posts={nextjsPosts} />
           <PostRow title="Server" posts={serverPosts} />

@@ -6,24 +6,18 @@
     padding-top: 1rem
     display: flex
     flex-direction: column
-    gap: clamp(1.2rem, 5vw, 2rem)
+    .separator:first-of-type
+        margin-top: 2rem
+    .separator:nth-of-type(2)
+        margin-bottom: 2rem
     @include break(xl)
         padding-inline: 0
         padding-top: 0
-
-    .separator
-        border-block: 2px solid $foreground
-        text-align: left
-        padding-bottom: 1.2rem
-        margin: 1rem
+  
+    p
+        display: none
         @include break(md)
-            padding-block: 1.2rem
-            margin: 0
-        
-        p
-            display: none
-            @include break(md)
-                display: block
+            display: block
 
 .latest
     display: flex
