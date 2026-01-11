@@ -10,6 +10,7 @@ import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
 import { Anton } from 'next/font/google'
 import { Divider } from './_components/Ui/Divider/Divider'
+import TextBody from './_components/Ui/TextBody/TextBody'
 
 const anton = Anton({
   weight: '400',
@@ -29,11 +30,11 @@ export default async function Home() {
           <div className={styles.wrapper}>
             <h1>GROW BLOG/_</h1>
             <Divider orientation="horizontal" deko={false} className={styles.separator} />
-            <p>
+            <TextBody>
               A blog platform built for the world. Share your thoughts, tutorials, and stories, and let our tools
               translate your content seamlessly. Write freely while your audience enjoys a clean, distraction-free
               reading experience, always in their own language.
-            </p>
+            </TextBody>
             <Divider orientation="horizontal" deko={false} className={styles.separator} />
             <CtaBar />
           </div>
