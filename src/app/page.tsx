@@ -40,22 +40,19 @@ export default async function Home() {
           </div>
           <div className={styles.latest}>
             <h2>Latest Posts</h2>
-            <div className={styles.latestPosts}>
-              {latestPosts.map((post) => (
-                <ArticleCard key={post.slug} {...post} variant="flip" layout="full" />
-              ))}
-            </div>
+            <PostRow posts={latestPosts} variant="flip" layout="full" ContainerClassName={styles.latestPosts} />
           </div>
         </InsetContainer>
       </Section>
+      
       <Section id="categories_section" className={styles.categories_section}>
         <InsetContainer variant="pure" className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
         </InsetContainer>
         <InsetContainer variant="pure" className={styles.categories_container}>
-          <PostRow title="Tech" posts={techPosts} />
-          <PostRow title="NextJS" posts={nextjsPosts} />
-          <PostRow title="Server" posts={serverPosts} />
+          <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          <PostRow posts={serverPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
         </InsetContainer>
       </Section>
     </main>

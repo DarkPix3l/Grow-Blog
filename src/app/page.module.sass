@@ -70,3 +70,21 @@
             -webkit-user-select: none
     .categories_container
         width: 100%
+        .row
+            padding: 1rem
+            display: flex
+            overflow-y: hidden
+            overflow-x: auto
+            scrollbar-width: none
+            -ms-overflow-style: none
+            gap: 0.5rem
+            // margin-left: 5%
+            &::-webkit-scrollbar
+                display: none
+            &:not(:last-child)
+                margin-block-end: 1rem 
+                
+            // h3
+            //     align-self: center
+            //     width: 160px
+            //     flex-shrink: 0

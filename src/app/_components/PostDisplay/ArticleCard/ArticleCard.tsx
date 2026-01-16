@@ -6,12 +6,7 @@ import Image from 'next/image'
 import style from './ArticleCard.module.sass'
 import { FiArrowRightCircle } from 'react-icons/fi'
 import Link from 'next/link'
-import { MappedPost } from '@/types/types'
-
-interface ArticleCardProps extends MappedPost {
-  variant: 'flip' | 'static'
-  layout: 'full' | 'compact' | 'mini'
-}
+import { ArticleCardProps } from '@/types/types'
 
 export default function ArticleCard({
   title,
