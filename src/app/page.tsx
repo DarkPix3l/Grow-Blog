@@ -5,7 +5,6 @@ import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
 import CtaBar from './_components/Layout/CTAbar/CtaBar'
 import { getLatestPost, getPostsByCategory } from '@/_lib/contentful-posts'
 import { mapPost } from '@/types/types'
-import ArticleCard from './_components/PostDisplay/ArticleCard/ArticleCard'
 import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
 import { Anton } from 'next/font/google'
@@ -44,7 +43,7 @@ export default async function Home() {
           </div>
         </InsetContainer>
       </Section>
-      
+
       <Section id="categories_section" className={styles.categories_section}>
         <InsetContainer variant="pure" className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
