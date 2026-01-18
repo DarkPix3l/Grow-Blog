@@ -7,7 +7,7 @@ import { FiArrowLeftCircle } from 'react-icons/fi'
 export default function notFound() {
   return (
     <main className={style.maincontainer}>
-      <InsetContainer className={notFoundStyle.center}>
+      <InsetContainer className={notFoundStyle.center} variant= "fluid">
         <div className={notFoundStyle.wrapper}>
           <h2>
             404<span> | Not found</span>
