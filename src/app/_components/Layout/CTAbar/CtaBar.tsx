@@ -1,9 +1,15 @@
+"use client"
 import style from "./CtaBar.module.sass";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useConditionalRendering } from "@/_hooks/ConditionalRendering";
 
 export default function CtaBar() {
+
+  const isMobile = useConditionalRendering("(max-width: 767px)")
+  if(isMobile) return null
+
   return (
     <section className={style.ctaBar}>
       <Image

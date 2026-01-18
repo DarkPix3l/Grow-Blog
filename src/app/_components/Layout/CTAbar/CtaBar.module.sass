@@ -2,40 +2,28 @@
 
 .ctaBar
     width: 100%
-    display: none
+    display: flex
     align-items: center
     justify-content: space-between
     border-radius: 5rem
     padding: clamp(0.8rem, 3vw, 1rem)
     background: linear-gradient(to right, #BBC8C9, #ADAFC1)
     box-shadow: 0 0 7.2px #e1e1e1, inset 2px 2px 7.8 #3a2e2ed7
-    flex-direction: column
-    gap: 0.3rem
-    @include break(md)
-        display: flex
-    @include break(lg)
-        gap: 0
-        flex-direction: row
 
     a
         display: flex
         align-items: center
         gap: 0.5rem
     h2
-        font-size: 1.8rem
         white-space: nowrap
     .tratto
         align-self: stretch
         border: 2px dashed white
         border-radius: 5rem
         margin-inline: 2rem
-        width: auto
-        @include break(lg)
-            width: 100%
+        width: 100%
     .ctaLogo
         filter: invert(1)
         margin-right: 2rem
-        display: none
-        @include break(lg)
-            display: block
+        display: block
         
