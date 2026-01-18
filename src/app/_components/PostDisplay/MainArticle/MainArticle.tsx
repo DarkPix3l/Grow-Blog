@@ -29,14 +29,15 @@ export default async function MainArticle({ post }: MainArticleProps) {
             language="javascript"
             style={a11yDark}
             wrapLines={true}
-            lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
+            // lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
             customStyle={{
-              margin: '1.5em 0',
+              margin: '1.5em auto',
               padding: '1em',
               borderRadius: '8px',
               fontSize: '0.9rem',
               lineHeight: '1.5',
               backgroundColor: '#393131',
+            
             }}
           >
             {String(text)}
