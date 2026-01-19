@@ -1,5 +1,8 @@
 @use '../../../styles/_mixins' as *
+@use './../../../styles/_breakpoints' as *
 
 .flex_row
-    @include flexWrap(row, null , null, nowrap, 1rem)
+    @include flexWrap(column, null , center , null , null )
     
+    @include break(lg)
+        @include flexWrap(row, null , start, nowrap, 1rem)

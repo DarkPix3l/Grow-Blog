@@ -46,8 +46,12 @@
 
 .categories_section
     display: grid
-    grid-template-columns: 133px 1fr
+    grid-template-rows: 455px 1fr
+    grid-template-columns: auto
     gap: $interface-gap
+    @include break(md)
+        grid-template-rows: auto
+        grid-template-columns: 133px 1fr
     .dark_inset
         background-color: $inset_dark
         margin: unset
@@ -68,6 +72,7 @@
             line-height: 0
             user-select: none
             -webkit-user-select: none
+
     .categories_container
         width: 100%
         .row
