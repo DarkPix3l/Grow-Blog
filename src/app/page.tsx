@@ -10,6 +10,8 @@ import Section from './_components/Layout/Section/Section'
 import { Anton } from 'next/font/google'
 import { Divider } from './_components/Ui/Divider/Divider'
 import TextBody from './_components/Ui/TextBody/TextBody'
+import FlexWrapper from './_components/Ui/FlexWrapper/FlexWrapper'
+import CategoryTitle from './_components/Ui/CategoryTitle/CategoryTitle'
 
 const anton = Anton({
   weight: '400',
@@ -20,7 +22,7 @@ export default async function Home() {
   //fetch by categories
   const techPosts = (await getPostsByCategory('tech')).items.map(mapPost)
   const nextjsPosts = (await getPostsByCategory('nextjs')).items.map(mapPost)
-  const serverPosts = (await getPostsByCategory('server')).items.map(mapPost)
+  const careerPosts = (await getPostsByCategory('career')).items.map(mapPost)
 
   return (
     <main>
@@ -48,10 +50,22 @@ export default async function Home() {
         <InsetContainer variant="pure" className={styles.dark_inset}>
           <h2 className={anton.className}>blog</h2>
         </InsetContainer>
+
         <InsetContainer variant="pure" className={styles.categories_container}>
-          <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
-          <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
-          <PostRow posts={serverPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          <FlexWrapper className="flex_row">
+            <CategoryTitle title="Tech" />
+            <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          </FlexWrapper>
+
+          <FlexWrapper className="flex_row">
+            <CategoryTitle title="Next Js" />
+            <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          </FlexWrapper>
+
+          <FlexWrapper className="flex_row">
+            <CategoryTitle title="Career" />
+            <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
+          </FlexWrapper>
         </InsetContainer>
       </Section>
     </main>
