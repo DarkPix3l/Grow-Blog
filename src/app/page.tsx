@@ -29,7 +29,7 @@ export default async function Home() {
     <>
       <main>
         <Section id="intro_section">
-          <InsetContainer variant="fluid">
+          <InsetContainer variant="fixed" className={styles.mainPage_container}>
             <div className={styles.wrapper}>
               <h1>GROW BLOG/_</h1>
               <Divider orientation="horizontal" deko={false} className={styles.separator} />
@@ -55,17 +55,17 @@ export default async function Home() {
 
           <InsetContainer variant="pure" className={styles.categories_container}>
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Tech" />
+              <CategoryTitle title="Tech" className={styles.categoryTitle_float}/>
               <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Next Js" />
+              <CategoryTitle title="Next Js" className={styles.categoryTitle_float}/>
               <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Career" />
+              <CategoryTitle title="Career" className={styles.categoryTitle_float}/>
               <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
           </InsetContainer>

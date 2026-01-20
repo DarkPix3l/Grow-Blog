@@ -1,6 +1,7 @@
 @use './styles/_variables' as *
 @use './styles/_breakpoints' as *
-
+.mainPage_container.mainPage_container
+    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
 .wrapper
     padding-inline: 1rem
     padding-top: 1rem
@@ -83,13 +84,13 @@
             scrollbar-width: none
             -ms-overflow-style: none
             gap: 0.5rem
-            // margin-left: 5%
             &::-webkit-scrollbar
                 display: none
             &:not(:last-child)
-                margin-block-end: 1rem 
+                margin-block-end: 1rem
+        .categoryTitle_float
+            justify-content: center
+            @include break(lg)
+                justify-content: flex-start
+            
                 
-            // h3
-            //     align-self: center
-            //     width: 160px
-            //     flex-shrink: 0
