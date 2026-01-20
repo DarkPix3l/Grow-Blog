@@ -1,8 +1,21 @@
+@use '../../../styles/_breakpoints' as *
+
 .footer_container
-    flex-direction: row
-    justify-content: space-between
-    margin: 0rem 2rem 2rem 2rem //temp solution
-    h2
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 10rem
+    margin: 0 2rem 2rem 2rem //temp solution
+    border-top: 1px solid
+    @include break(md)
+        border-top: 0
+        margin-top: 0
+    @include break(lg)
+        grid-template-rows: 1fr
+        grid-template-columns: 1fr 1fr
+.footerTitle
+    flex-direction: row-reverse
+    width: 100%
+    h3
         margin: auto
-    .divider_override
-        margin-block: unset
+    div div:first-of-type
+        margin-left: 5rem

@@ -1,4 +1,4 @@
-import { Divider } from '../../Ui/Divider/Divider'
+import CategoryTitle from '../../Ui/CategoryTitle/CategoryTitle'
 import FlexWrapper from '../../Ui/FlexWrapper/FlexWrapper'
 import InsetContainer from '../InsetContainer/InsetContainer'
 import NavLinks from '../navLinks/NavLinks'
@@ -34,9 +34,8 @@ export default function Footer() {
           <NavLinks links={navigation} title="Navigation" />
           <NavLinks links={Learn} title="Learn" />
           <NavLinks links={Info} title="Info" />
-          <Divider orientation="vertical" deko={false} className={style.divider_override} />
         </FlexWrapper>
-        <h2>Grow Blog</h2>
+        <CategoryTitle title="Grow Blog" className={style.footerTitle} />
       </InsetContainer>
     </footer>
   )

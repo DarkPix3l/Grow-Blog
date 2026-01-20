@@ -5,18 +5,19 @@ import { useConditionalRendering } from '@/_hooks/ConditionalRendering'
 import { useState, useEffect } from 'react'
 interface CategoryTitleProps {
   title: string
+  className?: string
 }
 
-export default function CategoryTitle({ title }: CategoryTitleProps) {
+export default function CategoryTitle({ title , className}: CategoryTitleProps) {
   const isMobile = useConditionalRendering('(max-width: 1023px)')
     const [mounted, setMounted] = useState(false)
     useEffect(() => setMounted(true), [])
     if (!mounted) return null
 
   return (
-    <>
+    <div className={`${style.temp} ${className || ''}`}>
       <h3 className={style.title}>{title}</h3>
       {isMobile ? null : <Divider className={style.ver_div} orientation="vertical" flexDir="row" deko={false} />}
-    </>
+    </div>
   )
 }
