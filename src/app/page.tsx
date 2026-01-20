@@ -13,6 +13,7 @@ import TextBody from './_components/Ui/TextBody/TextBody'
 import FlexWrapper from './_components/Ui/FlexWrapper/FlexWrapper'
 import CategoryTitle from './_components/Ui/CategoryTitle/CategoryTitle'
 import Footer from './_components/Layout/Footer/Footer'
+import WeatherWidget from './_components/Ui/WeatherWidget/WeatherWidget'
 
 const anton = Anton({
   weight: '400',
@@ -55,19 +56,28 @@ export default async function Home() {
 
           <InsetContainer variant="pure" className={styles.categories_container}>
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Tech" className={styles.categoryTitle_float}/>
+              <CategoryTitle title="Tech" className={styles.categoryTitle_float} />
               <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Next Js" className={styles.categoryTitle_float}/>
+              <CategoryTitle title="Next Js" className={styles.categoryTitle_float} />
               <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Career" className={styles.categoryTitle_float}/>
+              <CategoryTitle title="Career" className={styles.categoryTitle_float} />
               <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
+          </InsetContainer>
+        </Section>
+
+        <Section id="mood-section" className={styles.mood_section}>
+          <InsetContainer variant="pure">
+            <PostRow posts={nextjsPosts} variant="static" layout="compact" ContainerClassName={styles.rowTemp} />
+          </InsetContainer>
+          <InsetContainer variant="pure">
+            <WeatherWidget />
           </InsetContainer>
         </Section>
       </main>
