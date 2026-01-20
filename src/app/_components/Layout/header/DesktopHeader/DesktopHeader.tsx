@@ -16,13 +16,13 @@ export default function DesktopHeader() {
         </Link>
         <Nav>
           <Button goTo="/" variant="primary-top" ariaLabel="link1">
-            Link 1
+            <p>Home</p>
           </Button>
-          <Button goTo="#" variant="primary-top" ariaLabel="link2">
-            Link 2
+          <Button goTo="#categories_section" variant="primary-top" ariaLabel="link2">
+            <p>Categories</p>
           </Button>
           <Button goTo="/" variant="primary-top" ariaLabel="link3">
-            Link 3
+            <p>Mood</p>
           </Button>
           <Button goTo="/" variant="secondary-inset" ariaLabel="Change language">
             <TfiWorld />

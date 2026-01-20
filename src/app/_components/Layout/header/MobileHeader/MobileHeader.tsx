@@ -42,13 +42,13 @@ export default function MobileHeader() {
           <Nav className={style.m_nav}>
             <div className={style.primay_button_group}>
               <Button goTo="/" variant="primary-top" ariaLabel="placeholder">
-                Link 1
+                <p>Home</p>
               </Button>
-              <Button goTo="#" variant="primary-top" ariaLabel="placeholder">
-                Link 2
+              <Button goTo="#categories_section" variant="primary-top" ariaLabel="placeholder">
+                <p>Categories</p>
               </Button>
               <Button goTo="/" variant="primary-top" ariaLabel="placeholder">
-                Link 3
+                <p>Mood</p>
               </Button>
             </div>
             <div className={style.secondary_button_group}>
