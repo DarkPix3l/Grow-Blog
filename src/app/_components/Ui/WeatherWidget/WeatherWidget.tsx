@@ -1,7 +1,8 @@
+'use client'
 import { PiSunDimLight } from 'react-icons/pi'
 import style from './WeatherWidget.module.sass'
 import { CiLocationOn } from 'react-icons/ci'
-
+import { useEffect, useState } from 'react'
 interface WeatherWidgetProps {
   className?: string
 }
@@ -31,6 +32,28 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
     mood: 'calm',
   }
 
+  //we are saving the cordinate in a state for reuse
+  const [coords, setCoords] = useState<null | { lat: number; lon: number }>(null)
+
+  //we are asking for the user location, we must do it in the client.
+  //if successful we will fetch the data from the weather provider and update the widget
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        console.log('Latitude is: ', position.coords.latitude)
+        console.log('Longitude is: ', position.coords.longitude)
+
+        setCoords({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        })
+      },
+      function (error) {
+        console.error('Error obtaining location: ', error)
+      }
+    )
+  }, [])
+
   return (
     <article>
       <header>
@@ -47,7 +70,6 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
 
       <figure>
         <PiSunDimLight size={80} aria-hidden="true" />
-
         <figcaption>
           <h2>
             {mockWeather.current.temperature} <span>°C</span>
@@ -55,6 +77,10 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
           <p>{mockWeather.current.situation}</p>
         </figcaption>
       </figure>
+
+      <div>
+
+      </div>
     </article>
   )
 }
