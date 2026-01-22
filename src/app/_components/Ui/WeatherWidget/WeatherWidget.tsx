@@ -16,6 +16,7 @@ type WeatherData = {
   temperature: number
   weatherCode: number
   situation: string
+  icon: string
 }
 
 export default function WeatherWidget({ className }: WeatherWidgetProps) {
@@ -29,6 +30,7 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
     temperature: 4.2,
     weatherCode: 3,
     situation: 'partly_cloudy',
+    icon: '',
   }
 
   //saving the cordinates
@@ -67,6 +69,9 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
   }, [coords])
   //---------------------------------
 
+  //Dinamic icons url
+  const iconUrl = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
+
   return (
     <>
       <article>
@@ -83,7 +88,7 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
         </header>
 
         <figure>
-          <PiSunDimLight size={80} aria-hidden="true" />
+          {!coords ? <PiSunDimLight size={80} aria-hidden="true" /> : <img src={iconUrl} alt={weather.situation} />}
           <figcaption>
             <h2>
               {weather.temperature} <span>°C</span>

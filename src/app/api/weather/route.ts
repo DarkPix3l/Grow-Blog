@@ -56,6 +56,7 @@ export async function GET(req: NextRequest) {
       temperature: formattedTemperature,
       weatherCode: data.weather[0].id,
       situation: data.weather[0].main.toLowerCase(),
+      icon: data.weather[0].icon,
     }
 
     // save the response in a variable instead
