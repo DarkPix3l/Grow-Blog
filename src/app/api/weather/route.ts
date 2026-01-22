@@ -58,7 +58,17 @@ export async function GET(req: NextRequest) {
       situation: data.weather[0].main.toLowerCase(),
     }
 
-    return NextResponse.json(weatherData)
+    // save the response in a variable instead
+    const response = NextResponse.json(weatherData)
+
+    // Set the cookie on the response
+    response.cookies.set('user-weather-code', weatherData.weatherCode.toString(), {
+      path: '/',
+      maxAge: 60 * 60 * 24, // 24 hours
+      sameSite: 'lax',
+    })
+    //returning cookie and response
+    return response
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
   }

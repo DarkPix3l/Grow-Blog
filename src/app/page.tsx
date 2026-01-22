@@ -3,7 +3,7 @@
 import styles from './page.module.sass'
 import InsetContainer from './_components/Layout/InsetContainer/InsetContainer'
 import CtaBar from './_components/Layout/CTAbar/CtaBar'
-import { getLatestPost, getPostsByCategory } from '@/_lib/contentful-posts'
+import { getLatestPost, getPostsByCategory, mapWeatherToCategory } from '@/_lib/contentful-posts'
 import { mapPost } from '@/types/types'
 import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
@@ -22,9 +22,12 @@ const anton = Anton({
 export default async function Home() {
   const latestPosts = (await getLatestPost()).items.map(mapPost)
   //fetch by categories
-  const techPosts = (await getPostsByCategory('tech')).items.map(mapPost)
-  const nextjsPosts = (await getPostsByCategory('nextjs')).items.map(mapPost)
-  const careerPosts = (await getPostsByCategory('career')).items.map(mapPost)
+  const techPosts = (await getPostsByCategory('tech', 3)).items.map(mapPost)
+  const nextjsPosts = (await getPostsByCategory('nextjs', 3)).items.map(mapPost)
+  const careerPosts = (await getPostsByCategory('career', 3)).items.map(mapPost)
+  const weatherCategory = await mapWeatherToCategory()
+  console.log(weatherCategory)
+  const weatherPosts = (await getPostsByCategory(weatherCategory, 4)).items.map(mapPost)
 
   return (
     <>
@@ -74,7 +77,7 @@ export default async function Home() {
 
         <Section id="mood-section" className={styles.mood_section}>
           <InsetContainer variant="pure">
-            <PostRow posts={nextjsPosts} variant="static" layout="compact" ContainerClassName={styles.rowTemp} />
+            <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.rowTemp} />
           </InsetContainer>
           <InsetContainer variant="pure">
             <WeatherWidget />
