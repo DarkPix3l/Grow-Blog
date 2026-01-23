@@ -1,12 +1,16 @@
 @use '../../../styles/_breakpoints' as *
 .temp
     display: flex
+    justify-content: center
 
 .title
     align-self: center
     min-width: unset
     @include break(lg)
         min-width: 100px
+    @include break(xxxl)
+        min-width: 166px
+    
 
 .ver_div
     > div

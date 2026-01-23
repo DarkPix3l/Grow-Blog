@@ -2,10 +2,10 @@
 @use './../../../styles/_breakpoints' as *
 
 .flex_row
-    @include flexWrap(column, null , center , null , null )
+    @include flexWrap(column, null , center , null , 1rem )
     
     @include break(lg)
-        @include flexWrap(row, null , start, nowrap, 1rem)
+        @include flexWrap(row, null , start, nowrap, 5rem)
 
 
 .flex_footer_navlinks_wrapper

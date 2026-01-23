@@ -1,5 +1,6 @@
 @use './styles/_variables' as *
 @use './styles/_breakpoints' as *
+
 .mainPage_container.mainPage_container
     padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
 .wrapper
@@ -72,8 +73,10 @@
 
     .categories_container
         width: 100%
+        > div:not(:last-child)
+            margin-bottom: 2rem
         .row
-            padding: 1rem
+            // padding: 1r  em
             display: flex
             overflow-y: hidden
             overflow-x: auto
@@ -84,12 +87,56 @@
                 display: none
             &:not(:last-child)
                 margin-block-end: 1rem
-        .categoryTitle_float
-            justify-content: center
-            @include break(lg)
-                justify-content: flex-start
             
 .mood_section
     display: grid
-    grid-template-columns: 2fr 1fr
+    grid-template-columns: unset
+    grid-template-rows: 1fr fit-content
     gap: 1rem
+    @include break(md)
+        grid-template-columns: 2fr 1fr
+        grid-template-rows: uset 
+    
+    .weatherContainer
+        align-items: center
+        @include break(xl)
+            flex-direction: row
+        h2
+            margin-bottom: 1rem
+            text-align: center
+            @include break(xl)
+                text-align: left
+        
+        .weather_row
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            width: 100%
+            height: 100%
+            @include break(xl)
+                flex-direction: row
+
+            a
+                position: relative
+                width: 100%
+                @include break(md)
+                    width: 80%
+                @include break(lg)
+                    width: 70%
+                @include break(xxxl)
+                    width: 44%
+                    
+                
+                & a:first-child
+                    z-index: 2
+                
+            @for $i from 1 through 4
+                a:nth-child(#{$i})
+                    margin-left: 0
+                    margin-top: if($i == 1, 0, -150px)
+                    @include break(xl)
+                        margin-left: if($i == 1, 0, -300px)
+                        margin-top: 0
+                    &:hover
+                        z-index: 2

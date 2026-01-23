@@ -59,25 +59,26 @@ export default async function Home() {
 
           <InsetContainer variant="pure" className={styles.categories_container}>
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Tech" className={styles.categoryTitle_float} />
+              <CategoryTitle title="Tech" />
               <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Next Js" className={styles.categoryTitle_float} />
+              <CategoryTitle title="Next Js" />
               <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
 
             <FlexWrapper className="flex_row">
-              <CategoryTitle title="Career" className={styles.categoryTitle_float} />
+              <CategoryTitle title="Career" />
               <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
             </FlexWrapper>
           </InsetContainer>
         </Section>
 
         <Section id="mood-section" className={styles.mood_section}>
-          <InsetContainer variant="pure">
-            <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.rowTemp} />
+          <InsetContainer variant="pure" className={styles.weatherContainer}>
+            <h2>Weather mood Pickup</h2>
+            <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.weather_row} />
           </InsetContainer>
           <InsetContainer variant="pure">
             <WeatherWidget />

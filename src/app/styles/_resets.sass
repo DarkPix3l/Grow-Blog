@@ -22,7 +22,6 @@ a
 
 main
   padding-top: $header-height
-  padding-bottom: 18px
   padding-inline: 1rem
   @include break(lg)
     padding-inline: 2rem
@@ -30,4 +29,10 @@ main
 section
   scroll-margin-top: $header-height
 
-  
+footer
+    max-width: $maxWidth-wrapper
+    margin-inline: auto
+    margin-bottom: 2rem
+    width: calc( 100% - 2rem )
+    @include break(lg)
+      width: calc( 100% - 4rem )

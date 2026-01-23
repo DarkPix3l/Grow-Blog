@@ -81,7 +81,7 @@
                 text-transform: uppercase
         
         h3
-            margin-block: 1rem
+            margin: 1rem 0
             text-align: left
         .author_infos
             display: flex
@@ -115,7 +115,12 @@
             position: relative
         .card_body
             display: block
-
+            h3
+                font-size: 1.3rem
+                margin: 0 0 1rem 0
+                @include break(md)
+                    margin: 1rem 0
+                
     &[data-layout="mini"]
         .card, .back
             height: 160px
@@ -127,11 +132,8 @@
             padding: 1rem
             h3
                 font-size: 1.3rem
-                margin-block: unset
-                margin-bottom: 0.6rem
-            .author_infos
-                position: absolute
-                bottom: 1rem
+                margin: 1rem 0
+
             
 
 
