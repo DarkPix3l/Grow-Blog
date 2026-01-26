@@ -70,7 +70,9 @@ export async function GET(req: NextRequest) {
     })
     //returning cookie and response
     return response
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unexpected error'
+
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }

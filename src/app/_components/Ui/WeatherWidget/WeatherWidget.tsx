@@ -3,6 +3,7 @@ import { PiSunDimLight } from 'react-icons/pi'
 import style from './WeatherWidget.module.sass'
 import { CiLocationOn } from 'react-icons/ci'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface WeatherWidgetProps {
   className?: string
@@ -19,7 +20,7 @@ type WeatherData = {
   icon: string
 }
 
-export default function WeatherWidget({ className }: WeatherWidgetProps) {
+export default function WeatherWidget() {
   //MOCKDATA displayed at the beginning then replaced
   const mockWeather: WeatherData = {
     city: 'Köln',
@@ -50,7 +51,7 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
         })
       },
       function (error) {
-        console.error('Error obtaining location: ', error)
+        console.log('Error obtaining location: ', error)
       }
     )
   }, [])
@@ -64,6 +65,7 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
       .then((res) => res.json())
       .then((data) => {
         if (!data.error) setWeather(data)
+          // console.log(weather.situation)
       })
       .catch((err) => console.error(err))
   }, [coords])
@@ -88,7 +90,7 @@ export default function WeatherWidget({ className }: WeatherWidgetProps) {
         </header>
 
         <figure>
-          {!coords ? <PiSunDimLight size={80} aria-hidden="true" /> : <img src={iconUrl} alt={weather.situation} />}
+          {!coords ? <PiSunDimLight size={80} aria-hidden="true" /> : <Image src={iconUrl} alt={weather.situation} />}
           <figcaption>
             <h2>
               {weather.temperature} <span>°C</span>
