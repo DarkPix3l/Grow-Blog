@@ -76,11 +76,11 @@ export default async function Home() {
         </Section>
 
         <Section id="mood-section" className={styles.mood_section}>
-          <InsetContainer variant="pure" className={styles.weatherContainer}>
+          <InsetContainer variant="pure" className={styles.moodContainer}>
             <h2>Weather mood Pickup</h2>
-            <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.weather_row} />
+            <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.mood_row} />
           </InsetContainer>
-          <InsetContainer variant="pure">
+          <InsetContainer variant="pure" className={styles.weatherContainer}>
             <WeatherWidget />
           </InsetContainer>
         </Section>

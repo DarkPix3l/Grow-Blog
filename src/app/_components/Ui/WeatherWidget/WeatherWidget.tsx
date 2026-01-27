@@ -5,9 +5,9 @@ import { CiLocationOn } from 'react-icons/ci'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-interface WeatherWidgetProps {
+/* interface WeatherWidgetProps {
   className?: string
-}
+} */
 type WeatherData = {
   city: string
   country: string
@@ -30,7 +30,7 @@ export default function WeatherWidget() {
     time: '11:00',
     temperature: 4.2,
     weatherCode: 3,
-    situation: 'partly_cloudy',
+    situation: 'Sunny',
     icon: '',
   }
 
@@ -65,7 +65,7 @@ export default function WeatherWidget() {
       .then((res) => res.json())
       .then((data) => {
         if (!data.error) setWeather(data)
-          // console.log(weather.situation)
+        // console.log(weather.situation)
       })
       .catch((err) => console.error(err))
   }, [coords])
@@ -76,38 +76,43 @@ export default function WeatherWidget() {
 
   return (
     <>
-      <article>
+      <article className={style.article}>
         <header>
-          <div>
+          <div className={style.date}>
             <h2>{weather.day}</h2>
             <time dateTime={`${weather.date}T${weather.time}`}>{weather.date}</time>
           </div>
 
           <address>
-            <CiLocationOn size={20} />
-            {weather.city}, <span>{weather.country}</span>
+            <CiLocationOn size={30} aria-hidden="true" className={style.location_icon} />
+            <p>
+              {weather.city}, <span>{weather.country}</span>
+            </p>
           </address>
         </header>
 
         <figure>
-          {!coords ? <PiSunDimLight size={80} aria-hidden="true" /> : <Image src={iconUrl} alt={weather.situation} />}
+          {!coords ? (
+            <PiSunDimLight size={80} aria-hidden="true" className={style.weather_icon} />
+          ) : (
+            <Image src={iconUrl} alt={weather.situation} width={100} height={100} />
+          )}
           <figcaption>
             <h2>
               {weather.temperature} <span>°C</span>
             </h2>
             <p>{weather.situation}</p>
           </figcaption>
+          <time dateTime={weather.time}>{weather.time}</time>
         </figure>
-        <time dateTime={weather.time}>{weather.time}</time>
+        {/* Display message on denied location */}
+        {!coords ? (
+          <div className={style.errorMsg}>
+            <h3>We can’t access your location</h3>
+            <p>Please allow location access to show local weather and tailor the content for you.</p>
+          </div>
+        ) : null}
       </article>
-
-      {/* Display message on denied location */}
-      {!coords ? (
-        <div className={style.errorMsg}>
-          <h3>We can’t access your location</h3>
-          <p>Please allow location access to show local weather and tailor the content for you.</p>
-        </div>
-      ) : null}
     </>
   )
 }

@@ -1,6 +1,45 @@
 @use '../../../styles/_variables' as *
+.article
+    display: flex
+    justify-content: space-between
+    align-content: space-between
+    flex-wrap: wrap
+    gap: 3rem
+    width: 100%
+    .date
+        margin-bottom: 1rem
+        h2
+            margin-block-end: 0.2rem
+            margin-left: -2px
+            font-size: 2.2rem
+        time
+            font-size: 1.2rem
+    address
+        display: flex
+        align-items: center
+        .location_icon
+            stroke-width: 0.8
+            margin-left: -4px
+        p
+            font-size: 1.2rem
+            font-weight: 600
+            font-style: normal
+    figure
+        .weather_icon
+            margin-left: -4px
+        h2
+            font-size: 3.125rem
+            margin-block-end: -0.5rem
+        p
+            margin-block-end: 0.5rem
+            font-size: 1.875rem
+            font-weight: 700
+        time
+            font-size: 1.5rem
+
+
 
 .errorMsg
     border: 1px solid $foreground
-    padding: 2rem
+    padding: 1.2rem
     border-radius: 2rem
