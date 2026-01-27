@@ -6,7 +6,7 @@
     height: calc( $header-height - 10px )
     margin-inline: auto
     margin-top: 5px
-    display: flex
+    display: none
     justify-content: center
     align-items: center
     background: linear-gradient(180deg, #e7e7e762, #a7a7a75d, #e7e7e762,)
@@ -16,6 +16,8 @@
     inset: 0
     z-index: 10
     border-radius: 3rem
+    @include break(lg)
+        display: flex
     @include break(xxl)
         max-width: $maxWidth-wrapper
     

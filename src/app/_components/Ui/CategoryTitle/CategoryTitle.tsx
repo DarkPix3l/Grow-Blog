@@ -1,18 +1,15 @@
-"use client"
+'use client'
 import style from './CategoryTitle.module.sass'
 import { Divider } from '../Divider/Divider'
 import { useConditionalRendering } from '@/_hooks/ConditionalRendering'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 interface CategoryTitleProps {
   title: string
   className?: string
 }
 
-export default function CategoryTitle({ title , className}: CategoryTitleProps) {
+export default function CategoryTitle({ title, className }: CategoryTitleProps) {
   const isMobile = useConditionalRendering('(max-width: 1023px)')
-    const [mounted, setMounted] = useState(false)
-    useEffect(() => setMounted(true), [])
-    if (!mounted) return null
 
   return (
     <div className={`${style.temp} ${className || ''}`}>
