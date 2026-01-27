@@ -46,6 +46,14 @@ export async function GET(req: NextRequest) {
 
     const formattedTemperature = data.main.temp.toFixed(0)
 
+    const imgRes = await fetch(
+      `https://api.unsplash.com/search/photos?query=${data.name}&per_page=1&client_id=${process.env.UNSPLASH_KEY}`
+    )
+    if (!imgRes.ok) {
+      throw new Error(`Unsplash error: ${imgRes.status}`)
+    }
+    const imgData = await imgRes.json()
+
     // MAPPING MOMENT - Because matching the shape of the obj "mockWeather" is a good thing.
     const weatherData = {
       city: data.name,
@@ -57,6 +65,7 @@ export async function GET(req: NextRequest) {
       weatherCode: data.weather[0].id,
       situation: data.weather[0].main.toLowerCase(),
       icon: data.weather[0].icon,
+      bg: imgData.results[0]?.urls?.regular,
     }
 
     // save the response in a variable instead

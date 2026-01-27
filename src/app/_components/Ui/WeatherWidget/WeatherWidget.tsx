@@ -18,6 +18,7 @@ type WeatherData = {
   weatherCode: number
   situation: string
   icon: string
+  bg: string
 }
 
 export default function WeatherWidget() {
@@ -32,6 +33,7 @@ export default function WeatherWidget() {
     weatherCode: 3,
     situation: 'Sunny',
     icon: '',
+    bg: '',
   }
 
   //saving the cordinates
@@ -76,7 +78,10 @@ export default function WeatherWidget() {
 
   return (
     <>
-      <article className={style.article}>
+      <article
+        className={style.article}
+        style={{ ['--bg-url']: weather.bg ? `url("${weather.bg}")` : 'none' } as React.CSSProperties}
+      >
         <header>
           <div className={style.date}>
             <h2>{weather.day}</h2>
