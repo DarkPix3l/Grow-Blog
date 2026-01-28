@@ -1,45 +1,7 @@
 @use './styles/_variables' as *
 @use './styles/_breakpoints' as *
 
-.mainPage_container.mainPage_container
-    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
-    gap: 2rem
-.wrapper
-    padding-inline: 1rem
-    padding-top: 1rem
-    display: flex
-    flex-direction: column
-    .separator:first-of-type
-        margin-top: 2rem
-    .separator:nth-of-type(2)
-        margin-bottom: 2rem
-    p
-        display: none
-        @include break(md)
-            display: block
 
-.latest
-    display: flex
-    flex-direction: column
-    min-height: 0
-    height: 100%
-    gap: 2rem
-    p
-        text-align: center
-
-.latestPosts
-    display: grid
-    grid-template-columns: repeat(4, 1fr)
-    overflow-x: auto
-    scroll-margin: 230px
-    gap: 0.5rem
-    padding-block: 1rem
-    scrollbar-width: none
-    -ms-overflow-style: none
-    &::-webkit-scrollbar
-        display: none
-    @include break(xl)
-        gap: 0.8rem
 
 .categories_section
     display: grid
