@@ -10,6 +10,7 @@ import { ArticleHeading } from '@/app/_components/PostDisplay/ArticleHeading/Art
 import { Divider } from '@/app/_components/Ui/Divider/Divider'
 import Button from '../_components/Ui/Button/Button'
 import { notFound } from 'next/navigation'
+import TextBody from '../_components/Ui/TextBody/TextBody'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params
@@ -27,7 +28,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   /* in this case, preferred props drilling instead of second fetching in children */
   return (
     <main className={style.maincontainer}>
-      <InsetContainer variant="fluid">
+      <InsetContainer variant="fixed" className={style.article_container}>
         <div className={style.main_article}>
           <aside>
             <input type="checkbox" name="slideUp" id="slideUp" />
@@ -40,7 +41,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
             <Button variant="go-back-btn-inset" goTo="/" ariaLabel="go back button">
               <FiArrowLeftCircle size={32} />
-              <p>Back to Home</p>
+              <TextBody>Back to Home</TextBody>
             </Button>
           </aside>
           <Divider orientation="vertical" flexDir="column" deko={false} />
