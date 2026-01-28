@@ -15,16 +15,12 @@
             border-radius: 0.5rem
         h4
             margin-bottom: 0.5rem
-        @include smallLaptop()
-            max-height: 221px
-            grid-template-columns: 1fr
   
     .text_infos
         position: relative
         justify-self: start
         height: 130px
-        @include smallLaptop()
-            height: 88px
+        
         &::after
             content: ""
             background: linear-gradient(to bottom, transparent 85%, $primary 97%)
