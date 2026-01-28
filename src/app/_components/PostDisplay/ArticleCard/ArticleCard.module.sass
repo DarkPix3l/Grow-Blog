@@ -4,6 +4,7 @@
 .clickable
     position: relative
     perspective: 1000px
+    transform-style: preserve-3d
     &:hover
         .card:has(+ .back)
             transform: rotateY(180deg)
@@ -25,6 +26,7 @@
         transition-timing-function: cubic-bezier(.175, .885, .32, 1.275)
         transition-duration: .5s
         transition-property: transform, opacity
+        
 
     // Front Side
     .card
