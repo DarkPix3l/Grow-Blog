@@ -55,6 +55,7 @@
         margin: unset
         overflow: hidden
         position: relative
+        padding: 0
         &::after
             content: ""
             width: 100%
@@ -73,10 +74,22 @@
 
     .categories_container
         width: 100%
+        position: relative
         > div:not(:last-child)
             margin-bottom: 2rem
+        &::after
+            content: ''
+            width: 96%
+            height: 96%
+            position: absolute
+            right: 2%
+            top: 2%
+            background: linear-gradient(90deg, #0000 83%, $primary 90%)
+            pointer-events: none
+            border-radius: $radius-main
+            @include break(lg)
+                display: none
         .row
-            // padding: 1r  em
             display: flex
             overflow-y: hidden
             overflow-x: auto
@@ -87,6 +100,7 @@
                 display: none
             &:not(:last-child)
                 margin-block-end: 1rem
+
             
 .mood_section
     display: grid
@@ -142,6 +156,6 @@
     .weatherContainer
         flex-direction: row
         padding: 0
-        background: linear-gradient(180deg,rgba(136, 235, 239, 0.9) 0%, rgba(83, 91, 230, 0.9) 100%)
+        background: linear-gradient(180deg,rgba(136, 235, 239, 0.7) 0%, rgba(83, 91, 230, 0.7) 100%)
         user-select: none
         -webkit-user-select: none
