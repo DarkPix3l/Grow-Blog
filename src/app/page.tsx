@@ -6,61 +6,28 @@ import { getLatestPost, getPostsByCategory, mapWeatherToCategory } from '@/_lib/
 import { mapPost } from '@/types/types'
 import PostRow from './_components/PostDisplay/PostRow/PostRow'
 import Section from './_components/Layout/Section/Section'
-import { Anton } from 'next/font/google'
 import TextBody from './_components/Ui/TextBody/TextBody'
 import FlexWrapper from './_components/Ui/FlexWrapper/FlexWrapper'
-import CategoryTitle from './_components/Ui/CategoryTitle/CategoryTitle'
 import Footer from './_components/Layout/Footer/Footer'
 import WeatherWidget from './_components/Ui/WeatherWidget/WeatherWidget'
 import IntroSection from './_components/Layout/IntroSection/IntroSection'
+import CategoriesSection from './_components/Layout/CategoriesSection/CategoriesSection'
 
-const anton = Anton({
-  weight: '400',
-  subsets: ['latin'],
-})
 export default async function Home() {
   const latestPosts = (await getLatestPost()).items.map(mapPost)
   //fetch by categories
   const techPosts = (await getPostsByCategory('tech', 3)).items.map(mapPost)
   const nextjsPosts = (await getPostsByCategory('nextjs', 3)).items.map(mapPost)
   const careerPosts = (await getPostsByCategory('career', 3)).items.map(mapPost)
+  //fetch by weather
   const weatherCategory = await mapWeatherToCategory()
-  console.log(weatherCategory)
   const weatherPosts = (await getPostsByCategory(weatherCategory, 4)).items.map(mapPost)
 
   return (
     <>
       <main>
         <IntroSection posts={latestPosts} />
-        <Section id="categories_section" className={styles.categories_section}>
-          <InsetContainer variant="pure" className={styles.dark_inset}>
-            <h2 className={anton.className}>blog</h2>
-          </InsetContainer>
-
-          <InsetContainer variant="pure" className={styles.categories_container}>
-            <FlexWrapper className="flex_center">
-              <h2>Browse by Topic</h2>
-              <TextBody>
-                Looking for something specific? Dive into our specialized categories to find the stories, tutorials, and
-                insights that interest you most
-              </TextBody>
-            </FlexWrapper>
-            <FlexWrapper className="flex_row">
-              <CategoryTitle title="Tech" />
-              <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
-            </FlexWrapper>
-
-            <FlexWrapper className="flex_row">
-              <CategoryTitle title="Next Js" />
-              <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
-            </FlexWrapper>
-
-            <FlexWrapper className="flex_row">
-              <CategoryTitle title="Career" />
-              <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
-            </FlexWrapper>
-          </InsetContainer>
-        </Section>
+        <CategoriesSection techPosts={techPosts} nextjsPosts={nextjsPosts} careerPosts={careerPosts} />
 
         <Section id="mood-section" className={styles.mood_section}>
           <InsetContainer variant="pure" className={styles.moodContainer}>

@@ -1,0 +1,62 @@
+@use '../../../styles/_variables' as *
+@use '../../../styles/_breakpoints' as *
+
+.categories_section
+    display: grid
+    grid-template-rows: 455px 1fr
+    grid-template-columns: auto
+    gap: $interface-gap
+    @include break(md)
+        grid-template-rows: auto
+        grid-template-columns: 133px 1fr
+    .dark_inset
+        background-color: $inset_dark
+        margin: unset
+        overflow: hidden
+        position: relative
+        padding: 0
+        &::after
+            content: ""
+            width: 100%
+            height: 100%
+            position: absolute
+            inset: 0
+            box-shadow: $container-inset
+        h2
+            color: #E7E7E7
+            font-size: 257px
+            writing-mode: sideways-lr
+            margin: auto
+            line-height: 0
+            user-select: none
+            -webkit-user-select: none
+
+    .categories_container
+        width: 100%
+        position: relative
+        gap: 2rem
+        &::after
+            content: ''
+            width: 96%
+            height: 96%
+            position: absolute
+            right: 2%
+            top: 2%
+            background: linear-gradient(90deg, #0000 83%, $primary 90%)
+            pointer-events: none
+            border-radius: $radius-main
+            @include break(lg)
+                display: none
+        h2,p
+            z-index: 2
+        .row
+            display: flex
+            overflow-y: hidden
+            overflow-x: auto
+            scrollbar-width: none
+            -ms-overflow-style: none
+            gap: 0.5rem
+            &::-webkit-scrollbar
+                display: none
+            &:not(:last-child)
+                margin-block-end: 1rem
