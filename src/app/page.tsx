@@ -46,7 +46,12 @@ export default async function Home() {
               <CtaBar />
             </div>
             <div className={styles.latest}>
-              <h2>Latest Posts</h2>
+              <FlexWrapper className="flex_center">
+                <h2>Latest Posts</h2>
+                <TextBody>
+                  Stay curious. A collection of our most recent thoughts, deep dives, and documented discoveries
+                </TextBody>
+              </FlexWrapper>
               <PostRow posts={latestPosts} variant="flip" layout="full" ContainerClassName={styles.latestPosts} />
             </div>
           </InsetContainer>
@@ -58,6 +63,13 @@ export default async function Home() {
           </InsetContainer>
 
           <InsetContainer variant="pure" className={styles.categories_container}>
+            <FlexWrapper className="flex_center">
+              <h2>Browse by Topic</h2>
+              <TextBody>
+                Looking for something specific? Dive into our specialized categories to find the stories, tutorials, and
+                insights that interest you most
+              </TextBody>
+            </FlexWrapper>
             <FlexWrapper className="flex_row">
               <CategoryTitle title="Tech" />
               <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={styles.row} />
@@ -77,7 +89,13 @@ export default async function Home() {
 
         <Section id="mood-section" className={styles.mood_section}>
           <InsetContainer variant="pure" className={styles.moodContainer}>
-            <h2>Weather mood Pickup</h2>
+            <FlexWrapper className="flex_center">
+              <h2>Weather mood Pickup</h2>
+              <TextBody>
+                Whether it's a rainy day for deep thinking or a bright morning for quick inspiration, we’ve got the
+                right story for your mood.
+              </TextBody>
+            </FlexWrapper>
             <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={styles.mood_row} />
           </InsetContainer>
           <InsetContainer variant="pure" className={styles.weatherContainer}>
