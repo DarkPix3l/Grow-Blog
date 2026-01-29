@@ -2,13 +2,15 @@
 
 .ctaBar
     width: 100%
-    display: flex
+    display: none
     align-items: center
     justify-content: space-between
     border-radius: 5rem
     padding: clamp(0.8rem, 3vw, 1rem)
     background: linear-gradient(to right, #BBC8C9, #ADAFC1)
     box-shadow: 0 0 7.2px #e1e1e1, inset 2px 2px 7.8 #3a2e2ed7
+    @include break(lg)
+        display: flex
 
     a
         display: flex
@@ -16,6 +18,7 @@
         gap: 0.5rem
     h2
         white-space: nowrap
+        margin-bottom: unset
     .tratto
         align-self: stretch
         border: 2px dashed white
