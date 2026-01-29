@@ -66,7 +66,7 @@ export default function ArticleCard({
               <p className={style.excerpt}>{excerpt}</p>
             </div>
           </div>
-          <Image src={coverImage} alt={`${title}, image`} fill />
+          <Image src={coverImage} alt={`${title}, image`} fill sizes="(max-width: 530px) 100vw" />
           {layout === 'mini' ? null : (
             <div className={style.card_action}>
               <p>go to article</p>

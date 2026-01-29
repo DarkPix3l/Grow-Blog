@@ -54,11 +54,8 @@ export default async function MainArticle({ post }: MainArticleProps) {
           <Image
             src={post.coverImage}
             alt={`${post.title}image`}
-            width={100}
-            height={100}
-            sizes="100%"
-            loading="eager"
-            priority
+            fill
+            sizes="1200px"
           />
         </div>
         <figcaption>

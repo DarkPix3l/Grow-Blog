@@ -10,12 +10,17 @@
         overflow: hidden
         margin-block-end: 1rem
         gap: 1rem
-        img
-            aspect-ratio: 1/1
+        .image_wrapper
+            position: relative
             border-radius: 0.5rem
-        h4
-            margin-bottom: 0.5rem
-  
+            width: 120px
+            height: 120px
+            overflow: hidden
+            img
+                object-fit: cover
+            h4
+                margin-bottom: 0.5rem
+    
     .text_infos
         position: relative
         justify-self: start
