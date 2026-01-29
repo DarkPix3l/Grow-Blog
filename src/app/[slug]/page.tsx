@@ -28,7 +28,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   /* in this case, preferred props drilling instead of second fetching in children */
   return (
     <main className={style.maincontainer}>
-      <InsetContainer variant="fixed" className={style.article_container}>
+      <InsetContainer variant="fluid" className={style.article_container}>
         <div className={style.main_article}>
           <aside>
             <input type="checkbox" name="slideUp" id="slideUp" />
