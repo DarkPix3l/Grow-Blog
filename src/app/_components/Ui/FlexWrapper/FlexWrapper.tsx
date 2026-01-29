@@ -1,14 +1,13 @@
 import style from './FlexWrapper.module.sass'
 
-
-interface FlexWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  className: string
+interface FlexWrapperProps {
+  className?: string
   children: React.ReactNode
 }
 
-export default function FlexWrapper({ className, children, ...rest }: FlexWrapperProps) {
+export default function FlexWrapper({ className, children }: FlexWrapperProps) {
   return (
-    <div className={style[className]} {...rest}>
+    <div className={className ? style[className] : undefined}>
       {children}
     </div>
   )
