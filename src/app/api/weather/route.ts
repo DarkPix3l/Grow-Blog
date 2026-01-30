@@ -2,10 +2,16 @@
 // The server route (/api/weather) was made to prevent the client to see the key
 // Performs the request to the external weather provider
 
-// Client flow:
+// Flow:
 // - Client component gets user coordinates (browser-only)
 // - Client calls this route with lat/lon
-// - Receives sanitized weather data (no API key exposed)
+// - Weather data is fetched from OpenWeather
+// - Data is formatted in a desired format
+// - bg is initialized as null
+// - weatherData obj is mapped
+// - the unsplash call will follow - if positive bg will be a link otherwise null
+// - Weather code is stored in a cookie
+// - Returning response
 
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -46,13 +52,8 @@ export async function GET(req: NextRequest) {
 
     const formattedTemperature = data.main.temp.toFixed(0)
 
-    const imgRes = await fetch(
-      `https://api.unsplash.com/search/photos?query=${data.name}&per_page=1&client_id=${process.env.UNSPLASH_KEY}`
-    )
-    if (!imgRes.ok) {
-      throw new Error(`Unsplash error: ${imgRes.status}`)
-    }
-    const imgData = await imgRes.json()
+    // Initialize background (from Unsplash) as null; it will be set later
+    let bg: string | null = null
 
     // MAPPING MOMENT - Because matching the shape of the obj "mockWeather" is a good thing.
     const weatherData = {
@@ -65,10 +66,22 @@ export async function GET(req: NextRequest) {
       weatherCode: data.weather[0].id,
       situation: data.weather[0].main.toLowerCase(),
       icon: data.weather[0].icon,
-      bg: imgData.results[0]?.urls?.regular,
+      bg: bg,
     }
 
-    // save the response in a variable instead
+    try {
+      const imgRes = await fetch(
+        `https://api.unsplash.com/search/photos?query=${data.name}&per_page=1&client_id=${process.env.UNSPLASH_KEY}`
+      )
+      if (imgRes.ok) {
+        const imgData = await imgRes.json()
+        weatherData.bg = imgData.results[0]?.urls?.regular
+      }
+    } catch (err) {
+      console.log('Unsplash failed', err)
+    }
+
+    // save the response in a variable
     const response = NextResponse.json(weatherData)
 
     // Set the cookie on the response
@@ -77,11 +90,12 @@ export async function GET(req: NextRequest) {
       maxAge: 60 * 60 * 24, // 24 hours
       sameSite: 'lax',
     })
+
     //returning cookie and response
     return response
+    
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unexpected error'
-
     return NextResponse.json({ error: message }, { status: 500 })
   }
 }
