@@ -1,16 +1,16 @@
 import style from './page.module.sass'
-import InsetContainer from '../_components/Layout/InsetContainer/InsetContainer'
-import NextArticle from '../_components/PostDisplay/NextArticle/NextArticle'
+import InsetContainer from '@/app/_components/Layout/InsetContainer/InsetContainer'
+import NextArticle from '@/app/_components/PostDisplay/NextArticle/NextArticle'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 import { IoIosArrowDropupCircle } from 'react-icons/io'
 import { getBlogEntryBySlug } from '@/_lib/contentful-posts'
 import { mapPost, ArticlePageProps } from '@/types/types'
-import MainArticle from '../_components/PostDisplay/MainArticle/MainArticle'
+import MainArticle from '@/app/_components/PostDisplay/MainArticle/MainArticle'
 import { ArticleHeading } from '@/app/_components/PostDisplay/ArticleHeading/ArticleHeading'
 import { Divider } from '@/app/_components/Ui/Divider/Divider'
-import Button from '../_components/Ui/Button/Button'
+import Button from '@/app/_components/Ui/Button/Button'
 import { notFound } from 'next/navigation'
-import TextBody from '../_components/Ui/TextBody/TextBody'
+import TextBody from '@/app/_components/Ui/TextBody/TextBody'
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params

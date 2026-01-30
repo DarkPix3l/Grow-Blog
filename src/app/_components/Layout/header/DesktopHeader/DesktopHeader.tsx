@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import Style from './DesktopHeader.module.sass'
@@ -6,8 +6,11 @@ import Button from '../../../Ui/Button/Button'
 import Nav from '../../nav/Nav'
 import { TfiWorld } from 'react-icons/tfi'
 import { BsSun } from 'react-icons/bs'
-
-export default function DesktopHeader() {
+import type { HeaderLink } from "@/_lib/HeaderData";
+interface DesktopHeaderProps {
+  links?: HeaderLink[]
+}
+export default function DesktopHeader({links = []}:DesktopHeaderProps) {
   return (
     <header className={Style.header}>
       <div className={Style.headerWrapper}>
@@ -15,15 +18,11 @@ export default function DesktopHeader() {
           <Image src="/img/logo.svg" alt="the Blog's Logo" width={42} height={42} />
         </Link>
         <Nav>
-          <Button goTo="/" variant="primary-top" ariaLabel="link1">
-            <p>Home</p>
-          </Button>
-          <Button goTo="#categories_section" variant="primary-top" ariaLabel="link2">
-            <p>Categories</p>
-          </Button>
-          <Button goTo="/" variant="primary-top" ariaLabel="link3">
-            <p>Mood</p>
-          </Button>
+          {links.map((link, index) => (
+            <Button key={index} goTo={link.href} variant="primary-top" ariaLabel={link.label}>
+              <p>{link.label}</p>
+            </Button>
+          ))}
           <Button goTo="/" variant="secondary-inset" ariaLabel="Change language">
             <TfiWorld />
           </Button>

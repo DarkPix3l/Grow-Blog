@@ -7,8 +7,13 @@ import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import style from './mobileHeader.module.sass'
+import type { HeaderLink } from '@/_lib/HeaderData'
 
-export default function MobileHeader() {
+interface MobileHeaderProps {
+  links?: HeaderLink[]
+}
+
+export default function MobileHeader({ links = [] }: MobileHeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
@@ -41,15 +46,11 @@ export default function MobileHeader() {
         {isMounted && (
           <Nav className={style.m_nav}>
             <div className={style.primay_button_group}>
-              <Button goTo="/" variant="primary-top" ariaLabel="placeholder">
-                <p>Home</p>
-              </Button>
-              <Button goTo="#categories_section" variant="primary-top" ariaLabel="placeholder">
-                <p>Categories</p>
-              </Button>
-              <Button goTo="/" variant="primary-top" ariaLabel="placeholder">
-                <p>Mood</p>
-              </Button>
+              {links.map((link, index) => (
+                <Button key={index} goTo={link.href} variant="primary-top" ariaLabel={link.label}>
+                  <p>{link.label}</p>
+                </Button>
+              ))}
             </div>
             <div className={style.secondary_button_group}>
               <Button goTo="/" variant="secondary-inset" ariaLabel="language">
