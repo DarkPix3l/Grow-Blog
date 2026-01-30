@@ -15,7 +15,7 @@ interface IntroSectionProps {
 export default function IntroSection({ posts }: IntroSectionProps) {
   return (
     <Section id="intro_section">
-      <InsetContainer variant="fixed" className={style.mainPage_container}>
+      <InsetContainer variant="fluid" className={style.mainPage_container}>
         <div className={style.wrapper}>
           <h1>GROW BLOG/_</h1>
           <Divider orientation="horizontal" deko={false} className={style.separator} />

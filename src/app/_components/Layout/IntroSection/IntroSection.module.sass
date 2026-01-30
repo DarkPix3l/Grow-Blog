@@ -2,13 +2,18 @@
 @use '../../../styles/_breakpoints' as *
 
 .mainPage_container.mainPage_container
-    padding: 0.2rem 0.2rem $padding-insetContainer 0.2rem
-    gap: 2rem
+    padding: 1rem
+    @include break(lg)
+        padding: 2rem
 .wrapper
-    padding-inline: 1rem
-    padding-top: 1rem
+    // padding-inline: 1rem
+    // padding-top: 1rem
     display: flex
     flex-direction: column
+    .separator
+        display: none
+        @include break(md)
+            display: block
     .separator:first-of-type
         margin-top: 2rem
     .separator:nth-of-type(2)
