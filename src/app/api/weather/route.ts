@@ -89,11 +89,12 @@ export async function GET(req: NextRequest) {
       path: '/',
       maxAge: 60 * 60 * 24, // 24 hours
       sameSite: 'lax',
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
     })
 
     //returning cookie and response
     return response
-    
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unexpected error'
     return NextResponse.json({ error: message }, { status: 500 })
