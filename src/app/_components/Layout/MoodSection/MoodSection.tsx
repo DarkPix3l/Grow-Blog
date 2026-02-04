@@ -6,7 +6,7 @@ import FlexWrapper from '@/app/_components/Ui/FlexWrapper/FlexWrapper'
 import WeatherWidget from '@/app/_components/Ui/WeatherWidget/WeatherWidget'
 import InsetContainer from '@/app/_components/Layout/InsetContainer/InsetContainer'
 import { MappedPosts } from '@/types/types'
-
+import { anton } from '@/_lib/font'
 interface MoodSectionProps {
   weatherPosts: MappedPosts
 }
@@ -23,8 +23,13 @@ export default function MoodSection({ weatherPosts }: MoodSectionProps) {
         </FlexWrapper>
         <PostRow posts={weatherPosts} variant="static" layout="compact" ContainerClassName={style.mood_row} />
       </InsetContainer>
+
       <InsetContainer variant="pure" className={style.weatherContainer}>
         <WeatherWidget />
+      </InsetContainer>
+      
+      <InsetContainer variant="pure" className={style.deko_inset}>
+        <h2 className={anton.className}>hsdgjhsfgjs</h2>
       </InsetContainer>
     </Section>
   )

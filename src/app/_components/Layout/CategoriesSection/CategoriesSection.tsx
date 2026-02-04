@@ -5,13 +5,8 @@ import TextBody from '@/app/_components/Ui/TextBody/TextBody'
 import FlexWrapper from '@/app/_components/Ui/FlexWrapper/FlexWrapper'
 import PostRow from '@/app/_components/PostDisplay/PostRow/PostRow'
 import CategoryTitle from '@/app/_components/Ui/CategoryTitle/CategoryTitle'
-import { Anton } from 'next/font/google'
+import { anton } from '@/_lib/font'
 import { MappedPosts } from '@/types/types'
-
-const anton = Anton({
-  weight: '400',
-  subsets: ['latin'],
-})
 
 interface CategoriesSectionProps {
   techPosts: MappedPosts
