@@ -10,7 +10,6 @@ export default function Header() {
   const segments = useSelectedLayoutSegments()
   const key = segments[0]
   const currentLinks: HeaderLink[] = HEADER_LINKS[key] || HEADER_LINKS.default
-  console.log(currentLinks)
 
   return (
     <>
