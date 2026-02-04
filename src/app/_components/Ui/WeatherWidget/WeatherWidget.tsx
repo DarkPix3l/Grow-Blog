@@ -128,7 +128,7 @@ export default function WeatherWidget() {
         </header>
 
         <figure>
-          {!coords ? (
+          {!weather.icon ? (
             <PiSunDimLight size={80} aria-hidden="true" className={style.weather_icon} />
           ) : (
             <Image src={iconUrl} alt={weather.situation} width={100} height={100} />
