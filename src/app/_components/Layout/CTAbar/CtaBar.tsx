@@ -14,7 +14,7 @@ export default function CtaBar() {
         <FiArrowUpRight size={43} />
       </Link>
       <div className={style.tratto}></div>
-      <Link href={'/'} aria-label="content your way">
+      <Link href={'/about'} aria-label="content your way">
         <h2>
           <strong>Content, Your Way</strong>
         </h2>

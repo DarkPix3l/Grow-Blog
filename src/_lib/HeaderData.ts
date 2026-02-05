@@ -11,7 +11,5 @@ export const HEADER_LINKS: Record<string, HeaderLink[]> = {
   ],
 
   article: [],
-  //   dashboard:[
-  //     {},
-  // ],
+  about: [],
 }
