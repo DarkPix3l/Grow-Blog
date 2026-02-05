@@ -1,5 +1,5 @@
 @use '../../../styles/_variables' as *
-.button
+%button
     font-size: 1rem
     border-radius: $radius-main
     transition: background 0.4s, color 0.4s
@@ -8,6 +8,7 @@
     justify-content: center
 
 %primary
+    @extend %button
     // width: 87px
     // height: 35px
     background: $button-primary
@@ -29,7 +30,7 @@
     box-shadow: inset 1px 1px 1px white, 1px 1.5px 4px #0000009a, 0 0 2px #1e1e1e8a
 
 %secondary
-
+    @extend %button
     background: $button-secondary
     color: $foreground
     width: 2.50rem
@@ -49,6 +50,7 @@
     box-shadow: inset -1px -3px 4px #EBEBEB, inset 0px 3px 2px #ffffff, inset -3px 4px 2px #00000056, inset 0 4px 4px #00000056, 0 4px 4px #00000056
 
 %go-back-btn
+    @extend %button
     background: $primary
     color: $foreground
     padding: 0.5rem
