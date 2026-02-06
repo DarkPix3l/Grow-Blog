@@ -1,7 +1,9 @@
 @use '../../../styles/_variables' as *
 @use '../../../styles/_breakpoints' as *
+@use '../../../styles/theme/_theme' as *
 %inset_container
-    background-color: $primary
+    transition: background-color 1s ease
+    background-color: var( --insetContainer-bg)
     border-radius: $radius-main
     box-shadow: $container-inset
     display: flex

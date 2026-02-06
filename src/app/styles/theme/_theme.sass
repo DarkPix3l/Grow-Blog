@@ -1,0 +1,9 @@
+// theme.sass
+//dark-light mode based on css variables will be moved to global
+@use '../_variables' as *
+
+body
+    --insetContainer-bg: #{$primary}
+
+    &[data-theme="theme-dark"]
+         --insetContainer-bg: #{$accent}
