@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '../../css/global.css'
 import { Inria_Sans } from 'next/font/google'
 import Header from './_components/Layout/header/Header'
+import CookieGetter from '@/_hooks/CookieGetter'
 
 const inriaSans = Inria_Sans({
   subsets: ['latin'],
@@ -37,11 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inriaSans.className}>
+      {/* body */}
+      <CookieGetter className={inriaSans.className}>
         <Header />
-
         {children}
-      </body>
+      </CookieGetter>
     </html>
   )
 }
