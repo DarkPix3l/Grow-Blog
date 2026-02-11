@@ -13,6 +13,7 @@
     .moodContainer
         align-items: center
         background: var(--mood-container-bg)
+        background: $theme-transition-bg
         @include break(xl)
             flex-direction: row
         .flex_wrapper_mood_section
@@ -64,6 +65,7 @@
     .weatherContainer
         flex-direction: row
         padding: 0
+        background: $theme-transition-bg
         background: var(--weather-container)
         user-select: none
         -webkit-user-select: none
@@ -72,6 +74,7 @@
         @include break(lg)
             grid-area: 1 / 2 / 3 / 3
     .deko_inset
+        background: $theme-transition-bg
         background-color: var(--deko-inset-bg)
         margin: unset
         overflow: hidden
@@ -92,6 +95,7 @@
             border-radius: 25px
         h2
             color: var(--deko-inset-text)
+            background: $theme-transition-color
             font-size: 257px
             writing-mode: horizontal-tb
             margin: auto
