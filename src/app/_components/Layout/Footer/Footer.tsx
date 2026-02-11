@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer aria-label="Site Footer">
       <InsetContainer variant="pure" className={style.footer_container}>
-        <FlexWrapper className="flex_footer_navlinks_wrapper">
+        <FlexWrapper addClass="flex_footer_navlinks_wrapper">
           <NavLinks links={navigation} title="Navigation" />
           <NavLinks links={Learn} title="Learn" />
           <NavLinks links={Info} title="Info" />

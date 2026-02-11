@@ -13,7 +13,7 @@ export async function ArticleHeading({ post }: { post: MappedPost | null }) {
     <div className={style.article_heading}>
       <h2>{post.title}</h2>
       {/* author's infos */}
-      <FlexWrapper className="flex_row_start">
+      <FlexWrapper addClass="flex_row_start">
         <Image src={post.authorPicture} alt={`${post.authorName} image`} width={40} height={40} />
         <FlexWrapper>
           <TextBody>{`written by ${post.authorName}`}</TextBody>
