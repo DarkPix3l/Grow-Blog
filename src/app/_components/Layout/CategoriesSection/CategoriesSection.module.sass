@@ -11,6 +11,7 @@
         grid-template-columns: 133px 1fr
     .dark_inset
         background-color: var(--inset_dark)
+        transition: $theme-transition-bg
         margin: unset
         overflow: hidden
         position: relative
@@ -42,7 +43,8 @@
             position: absolute
             right: 2%
             top: 2%
-            background: linear-gradient(90deg, #0000 83%, $primary 90%)
+            background: linear-gradient(90deg, #0000 83%, var(--insetContainer-bg) 90%)
+            transition: $theme-transition-bg
             pointer-events: none
             border-radius: $radius-main
             @include break(lg)
