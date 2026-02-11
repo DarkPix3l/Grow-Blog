@@ -10,7 +10,7 @@
         grid-template-rows: auto
         grid-template-columns: 133px 1fr
     .dark_inset
-        background-color: $inset_dark
+        background-color: var(--inset_dark)
         margin: unset
         overflow: hidden
         position: relative
@@ -47,8 +47,14 @@
             border-radius: $radius-main
             @include break(lg)
                 display: none
-        h2,p
-            z-index: 2
+        .flex_wrapper_categories_section
+            h2,p
+                z-index: 2
+                transition: $theme-transition-color
+            p
+                color: var(--paragraph-color)
+            h2
+                color: var(--headings-color)
         .row
             display: flex
             overflow-y: hidden

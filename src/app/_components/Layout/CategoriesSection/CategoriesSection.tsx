@@ -22,24 +22,24 @@ export default function CategoriesSection({ techPosts, nextjsPosts, careerPosts 
       </InsetContainer>
 
       <InsetContainer variant="pure" className={style.categories_container}>
-        <FlexWrapper className="flex_center">
+        <FlexWrapper addClass="flex_center" className={style.flex_wrapper_categories_section}>
           <h2>Browse by Topic</h2>
           <TextBody>
             Looking for something specific? Dive into our specialized categories to find the stories, tutorials, and
             insights that interest you most
           </TextBody>
         </FlexWrapper>
-        <FlexWrapper className="flex_row">
+        <FlexWrapper addClass="flex_row">
           <CategoryTitle title="Tech" />
           <PostRow posts={techPosts} variant="static" layout="mini" ContainerClassName={style.row} />
         </FlexWrapper>
 
-        <FlexWrapper className="flex_row">
+        <FlexWrapper addClass="flex_row">
           <CategoryTitle title="Next Js" />
           <PostRow posts={nextjsPosts} variant="static" layout="mini" ContainerClassName={style.row} />
         </FlexWrapper>
 
-        <FlexWrapper className="flex_row">
+        <FlexWrapper addClass="flex_row">
           <CategoryTitle title="Career" />
           <PostRow posts={careerPosts} variant="static" layout="mini" ContainerClassName={style.row} />
         </FlexWrapper>
