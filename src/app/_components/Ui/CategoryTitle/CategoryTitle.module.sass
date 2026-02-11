@@ -1,4 +1,6 @@
 @use '../../../styles/_breakpoints' as *
+@use '../../../styles/_variables' as *
+
 .temp
     display: flex
     justify-content: center
@@ -6,6 +8,8 @@
 .title
     align-self: center
     min-width: unset
+    transition: $theme-transition-color
+    color: var(--headings-color)
     @include break(lg)
         min-width: 100px
     @include break(xxxl)
