@@ -28,7 +28,7 @@ export default function IntroSection({ posts }: IntroSectionProps) {
           <CtaBar />
         </div>
         <div className={style.latest}>
-          <FlexWrapper className="flex_center">
+          <FlexWrapper addClass="flex_center" className={style.flex_wrapper_intro_section}>
             <h2>Latest Posts</h2>
             <TextBody>
               Stay curious. A collection of our most recent thoughts, deep dives, and documented discoveries
