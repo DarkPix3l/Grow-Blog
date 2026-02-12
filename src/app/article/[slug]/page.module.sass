@@ -7,6 +7,12 @@
         height: 100%
         padding: 0
         position: relative
+        :where(h1, h2, h3, h4, p, figcaption)
+            transition: $theme-transition-color
+        h1,h2,h3,h4
+            color: var(--headings-color)
+        p, figcaption
+            color: var(--paragraph-color)
         &::after
             content: ""
             width: 100%
@@ -43,12 +49,12 @@
                 padding: $padding-insetContainer
                 display: flex
                 flex-direction: column
-                box-shadow: 6px -6px 18px gray
+                box-shadow:  var(--slug-aside-shadow)
                 position: absolute
                 z-index: 2
-                background-color: $primary
+                background-color: var(--insetContainer-bg)
                 transform: translateY(84%)
-                transition: transform 0.5s ease-in-out
+                transition: transform 0.5s ease-in-out, $theme-transition-bg
                 &:has(input:checked)
                     transform: translateY(35%)
                 
