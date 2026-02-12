@@ -3,10 +3,10 @@ import { cookies } from 'next/headers'
 
 export default async function CookieGetter({ children, className}: { children: React.ReactNode , className?: string}) {
       const cookieStore = await cookies()
-      const theme = cookieStore.get('theme')?.value || 'light'
+      const theme = cookieStore.get('theme')?.value
       // Create the class string based on the cookie value
-      // const themeClass = theme === 'dark' ? 'theme-dark' : 'theme-light'
+      const themeClass = theme === 'theme-dark' ? 'theme-light': 'theme-dark'
   return (
-    <body data-theme={'theme-light'} className={className}>{children}</body>
+    <body data-theme={themeClass} className={className}>{children}</body>
   )
 }

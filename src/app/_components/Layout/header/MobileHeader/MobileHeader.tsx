@@ -16,6 +16,22 @@ interface MobileHeaderProps {
 export default function MobileHeader({ links = [] }: MobileHeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+  const [theme, setTheme] = useState<string | null>(null)
+
+  //______________
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'theme-light' ? 'theme-dark' : 'theme-light'
+    //setting the new theme as the attribute value
+    document.body.setAttribute('data-theme', newTheme)
+    
+    //cookie update with the new theme.
+    //an additional precaution. In reality the theme has a "fake persistency"
+    //the body doesn't rerender when visiting the other pages
+    document.cookie = `theme=${newTheme}; path=/; max-age=604800` //1week
+    setTheme(newTheme)
+  }
+  //_______________
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -56,7 +72,7 @@ export default function MobileHeader({ links = [] }: MobileHeaderProps) {
               <Button goTo="/" variant="secondary-inset" ariaLabel="language">
                 <TfiWorld />
               </Button>
-              <Button goTo="/" variant="secondary-inset" ariaLabel="dark-light mode">
+              <Button goTo="" variant="secondary-inset" ariaLabel="dark-light mode" onClickF={toggleTheme}>
                 <BsSun />
               </Button>
             </div>

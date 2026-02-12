@@ -16,13 +16,14 @@ interface ButtonProps {
   goTo: string
   ariaLabel: string
   classname?: string
+  onClickF?: () => void;
 }
 
-export default function Button({ variant = 'primary-inset', icon, children, goTo, ariaLabel, classname }: ButtonProps) {
+export default function Button({ variant = 'primary-inset', icon, children, goTo, ariaLabel, classname, onClickF }: ButtonProps) {
   const className = `${classname ?? ''} ${style[variant]}`
 
   return (
-    <Link href={goTo} className={className} aria-label={ariaLabel}>
+    <Link href={goTo} className={className} aria-label={ariaLabel} onClick={onClickF}>
       {icon ? <span className={style.icon}>{icon}</span> : null}
       {children}
     </Link>
