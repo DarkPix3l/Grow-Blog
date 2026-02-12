@@ -1,4 +1,5 @@
 @use '../../../styles/_breakpoints' as *
+@use '../../../styles/_variables' as *
 
 .ctaBar
     width: 100%
@@ -7,11 +8,15 @@
     justify-content: space-between
     border-radius: 5rem
     padding: clamp(0.8rem, 3vw, 1rem)
-    background: linear-gradient(to right, #BBC8C9, #ADAFC1)
+    background: var(--cta-bg)
+    transition: $theme-transition-bg
     box-shadow: 0 0 7.2px #e1e1e1, inset 2px 2px 7.8 #3a2e2ed7
     @include break(lg)
         display: flex
 
+    a,h2
+        color: var(--headings-color)
+        transition: $theme-transition-color
     a
         display: flex
         align-items: center
@@ -21,7 +26,9 @@
         margin-bottom: unset
     .tratto
         align-self: stretch
-        border: 2px dashed white
+        border: 2px dashed
+        border-color: var(--cta-tratto-color)
+        transition: $theme-transition-border
         border-radius: 5rem
         margin-inline: 2rem
         width: 100%
