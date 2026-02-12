@@ -11,7 +11,7 @@
             transition: $theme-transition-color
         h1,h2,h3,h4
             color: var(--headings-color)
-        p, figcaption
+        p, figcaption, ul
             color: var(--paragraph-color)
         &::after
             content: ""
@@ -43,7 +43,9 @@
                 grid-template-columns: 1fr 0fr 3fr
                 grid-template-rows: 1fr
                 margin-top: 0
-            
+            hr
+                border-color: var(--paragraph-color)
+                transition: $theme-transition-border
             aside
                 height: 100%
                 padding: $padding-insetContainer
