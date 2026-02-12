@@ -51,20 +51,21 @@
 
 %go-back-btn
     @extend %button
-    background: $primary
-    color: $foreground
+    background: var(--insetContainer-bg)
+    color: var(--paragraph-color)
+    transition: $theme-transition-bg, $theme-transition-color
     padding: 0.5rem
     gap: 0.5rem
     margin: 0.2rem
     p
         font-weight: 600
     &:hover
-        background: $button-secondary-hov
+        background: var(--go-back-button-bg-hover)
     &:active
         background: $button-secondary-act
 .go-back-btn-inset
     @extend %go-back-btn
-    box-shadow: inset 0px 0px 6px rgba(52, 30, 22, 0.5), 0px 0px 3px 2px #dadada
+    box-shadow: var(--go-back-button-inset-BShadow)
 
 .go-back-btn-top
     @extend %go-back-btn
