@@ -17,7 +17,7 @@ export default function MoodSection({ weatherPosts }: MoodSectionProps) {
         <FlexWrapper addClass="flex_center" className={style.flex_wrapper_mood_section}>
           <h2>Weather mood Pickup</h2>
           <TextBody>
-            Whether it's a rainy day for deep thinking or a bright morning for quick inspiration, we’ve got the right
+            Whether it&rsquo;s a rainy day for deep thinking or a bright morning for quick inspiration, we’ve got the right
             story for your mood.
           </TextBody>
         </FlexWrapper>

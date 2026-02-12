@@ -2,7 +2,7 @@
 import { PiSunDimLight } from 'react-icons/pi'
 import style from './WeatherWidget.module.sass'
 import { CiLocationOn } from 'react-icons/ci'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
@@ -43,35 +43,34 @@ export default function WeatherWidget() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [permissionState, setPermissionState] = useState<string>('')
 
-  const handleGetLocation = useCallback(() => {
-    setErrorMsg(null)
-
-    if (!navigator.geolocation) {
-      // error geolocation obj not avaible
-      setErrorMsg('Geolocation is not supported by your browser')
-      return
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        setCoords({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        })
-      },
-      function (error) {
-        console.log('Error obtaining location: ', error)
-        // error PERMISSION DENIED
-        setErrorMsg('Your Location is Disabled')
-      }
-    )
-  }, [])
-
   // RUN ON MOUNT + LISTEN FOR CHANGES
   useEffect(() => {
-    //Run immediately when the component loads
-    handleGetLocation()
+    const checkGeo = () => {
+      if (!navigator.geolocation) {
+        setErrorMsg('Geolocation is not supported by your browser')
+        return
+      }
+    }
+    checkGeo()
 
+    const handleGetLocation = () => {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          setCoords({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          })
+        },
+        function (error) {
+          console.log('Error obtaining location: ', error)
+          // error PERMISSION DENIED
+          setErrorMsg('Your Location is Disabled')
+        }
+      )
+    }
+
+    // run once on mount
+    handleGetLocation()
     //Setup the listener for when they toggle permission in the UI
     if (navigator.permissions && navigator.permissions.query) {
       navigator.permissions.query({ name: 'geolocation' as PermissionName }).then((result) => {
@@ -84,7 +83,7 @@ export default function WeatherWidget() {
         }
       })
     }
-  }, [handleGetLocation])
+  }, [])
 
   //Handler--------------------------
   useEffect(() => {

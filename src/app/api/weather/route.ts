@@ -53,7 +53,7 @@ export async function GET(req: NextRequest) {
     const formattedTemperature = data.main.temp.toFixed(0)
 
     // Initialize background (from Unsplash) as null; it will be set later
-    let bg: string | null = null
+    const bg: string | null = null
 
     // MAPPING MOMENT - Because matching the shape of the obj "mockWeather" is a good thing.
     const weatherData = {
