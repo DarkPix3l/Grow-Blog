@@ -20,7 +20,7 @@ export default function ArticleCard({
   layout = 'full',
 }: ArticleCardProps) {
   return (
-    <Link href={`/article/${slug}`} className={style.clickable} data-layout={layout} data-variant={variant}>
+    <Link href={`/article/${slug}`} className={style.clickable} data-layout={layout} data-variant={variant} data-testid='cardLink'>
       {/* FRONT */}
       <article className={style.card}>
         <div className={style.card_body}>
