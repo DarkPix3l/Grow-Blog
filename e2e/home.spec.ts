@@ -12,7 +12,7 @@ test.describe('Homepage Content & Navigation', () => {
     const logo = header.getByAltText("the Blog's Logo")
     await expect(logo).toHaveCount(1)
     const nav = header.getByRole('navigation')
-    await expect(nav).toBeVisible
+    await expect(nav).toBeVisible()
     const navButtons = nav.getByRole('link')
     await expect(navButtons).toHaveCount(5)
   })
@@ -39,7 +39,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(page).toHaveURL('/')
   })
 
-  test('should display Intro Section content', async ({ page }) => {
+  test('it should display Intro Section content', async ({ page }) => {
     //Intro Section
     const introSection = page.locator('#intro_section')
     //Main title
@@ -75,7 +75,19 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(firstCardBody.getByText('written by').first()).toBeVisible()
   })
 
-  test('card should be clickable', async ({ page }) => {
+  test('first cta link should be clickable', async ({ page }) => {
+    const introSection = page.locator('#intro_section')
+    await introSection.getByRole('link', { name: 'start writing' }).click() //page not yet implemented
+  })
+
+  test('second cta link should go to about page', async ({ page }) => {
+    const introSection = page.locator('#intro_section')
+    const contentYourWay = introSection.getByRole('link', { name: 'content your way' })
+    await contentYourWay.click()
+    await expect(page).toHaveURL('/about')
+  })
+
+  test('Article Card should be clickable', async ({ page }) => {
     const firstCard = page.getByTestId('cardLink').first()
 
     // I'm replacing the previous link test because the latest posts will always change.
@@ -83,5 +95,48 @@ test.describe('Homepage Content & Navigation', () => {
     const href = await firstCard.getAttribute('href')
     await firstCard.click()
     await expect(page).toHaveURL(new RegExp(`${href}`))
+  })
+
+  test('it should display Categories Section content', async ({ page }) => {
+    const categoriesSection = page.locator('#categories_section')
+
+    const dekoHeading = categoriesSection.getByRole('heading', { name: 'blog', exact: true }).first()
+    await expect(dekoHeading).toBeAttached()
+
+    const categoriesHeading = categoriesSection.getByRole('heading', { name: 'Browse by Topic' })
+    await expect(categoriesHeading).toBeVisible()
+    await expect(categoriesHeading).toHaveText('Browse by Topic')
+
+    const categoriesDescription = categoriesSection.getByText('Looking for something specific?')
+    await expect(categoriesDescription).toBeVisible()
+
+    const firstCategory = categoriesSection.getByRole('heading', { name: 'Tech', exact: true })
+    const secondCategory = categoriesSection.getByRole('heading', { name: 'Next Js', exact: true })
+    const thirdCategory = categoriesSection.getByRole('heading', { name: 'Career', exact: true })
+
+    await expect(firstCategory).toBeVisible()
+    await expect(secondCategory).toBeVisible()
+    await expect(thirdCategory).toBeVisible()
+
+    //cartegories section cards
+    const firstCardBody = categoriesSection.getByRole('article').first()
+    await expect(firstCardBody.getByTestId('cardTitle').first()).toBeVisible()
+    await expect(firstCardBody.getByAltText('author picture').first()).toBeVisible()
+    await expect(firstCardBody.getByText('written by').first()).toBeVisible()
+  })
+
+  test('Categories Section Article Card should be clickable', async ({ page }) => {
+    const categoriesSection = page.locator('#categories_section')
+    const firstCard = categoriesSection.getByTestId('cardLink').first()
+
+    const href = await firstCard.getAttribute('href')
+    await firstCard.click()
+    await expect(page).toHaveURL(new RegExp(`${href}`))
+  })
+
+  test('it has the deko text not selectable', async ({ page }) => {
+    const categoriesSection = page.locator('#categories_section')
+    const dekoHeading = categoriesSection.getByRole('heading', { name: 'blog' })
+    await expect(dekoHeading).toHaveCSS('user-select', 'none')
   })
 })
