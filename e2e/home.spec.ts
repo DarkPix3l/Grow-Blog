@@ -2,12 +2,10 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Homepage Content & Navigation', () => {
   test.beforeEach(async ({ page }) => {
-    await page.setViewportSize({ width: 1920, height: 1080 })
-    await page.goto('/', { timeout: 10000 })
-    await expect(page).toBeTruthy()
+    await page.goto('/')
   })
 
-  test('header should be visible', async ({ page }) => {
+  test('header should be visible @desktop', async ({ page }) => {
     const header = page.locator('header').filter({ visible: true })
     const logo = header.getByAltText("the Blog's Logo")
     await expect(logo).toHaveCount(1)
@@ -17,7 +15,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(navButtons).toHaveCount(5)
   })
 
-  test('header links should be clickable', async ({ page }) => {
+  test('header links should be clickable @desktop', async ({ page }) => {
     const header = page.locator('header').filter({ visible: true })
     await header.getByAltText("the Blog's Logo").click()
     await expect(page).toHaveURL('/')
@@ -39,7 +37,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(page).toHaveURL('/')
   })
 
-  test('it should display Intro Section content', async ({ page }) => {
+  test('it should display Intro Section content @desktop', async ({ page }) => {
     //Intro Section
     const introSection = page.locator('#intro_section')
     //Main title
@@ -75,19 +73,19 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(firstCardBody.getByText('written by').first()).toBeVisible()
   })
 
-  test('first cta link should be clickable', async ({ page }) => {
+  test('first cta link should be clickable @desktop', async ({ page }) => {
     const introSection = page.locator('#intro_section')
     await introSection.getByRole('link', { name: 'start writing' }).click() //page not yet implemented
   })
 
-  test('second cta link should go to about page', async ({ page }) => {
+  test('second cta link should go to about page @desktop', async ({ page }) => {
     const introSection = page.locator('#intro_section')
     const contentYourWay = introSection.getByRole('link', { name: 'content your way' })
     await contentYourWay.click()
     await expect(page).toHaveURL('/about')
   })
 
-  test('Article Card should be clickable', async ({ page }) => {
+  test('Article Card should be clickable @desktop', async ({ page }) => {
     const firstCard = page.getByTestId('cardLink').first()
 
     // I'm replacing the previous link test because the latest posts will always change.
@@ -97,7 +95,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(page).toHaveURL(new RegExp(`${href}`))
   })
 
-  test('it should display Categories Section content', async ({ page }) => {
+  test('it should display Categories Section content @desktop', async ({ page }) => {
     const categoriesSection = page.locator('#categories_section')
 
     const dekoHeading = categoriesSection.getByRole('heading', { name: 'blog', exact: true }).first()
@@ -125,7 +123,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(firstCardBody.getByText('written by').first()).toBeVisible()
   })
 
-  test('Categories Section Article Card should be clickable', async ({ page }) => {
+  test('Categories Section Article Card should be clickable @desktop', async ({ page }) => {
     const categoriesSection = page.locator('#categories_section')
     const firstCard = categoriesSection.getByTestId('cardLink').first()
 
@@ -134,7 +132,7 @@ test.describe('Homepage Content & Navigation', () => {
     await expect(page).toHaveURL(new RegExp(`${href}`))
   })
 
-  test('it has the deko text not selectable', async ({ page }) => {
+  test('it has the deko text not selectable @desktop', async ({ page }) => {
     const categoriesSection = page.locator('#categories_section')
     const dekoHeading = categoriesSection.getByRole('heading', { name: 'blog' })
     await expect(dekoHeading).toHaveCSS('user-select', 'none')
