@@ -1,6 +1,13 @@
+// categoriesSection.spec.ts
+// Focuses on UI visibility and navigation
+// Makes sure the mini card layout has all elements at place
+// Includes content-agnostic assertions for dynamic CMS data (Latest Posts)
+// to ensure test stability as articles and categories change.
+// resolve dynamic url problem by getting the href attribute
+
 import { test, expect } from '@playwright/test'
 
-test.describe('Homepage Content & Navigation', () => {
+test.describe('Categories Section Content & Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')
   })
