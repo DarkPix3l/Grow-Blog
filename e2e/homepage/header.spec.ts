@@ -33,6 +33,7 @@ test.describe('Navigation', () => {
     await page.getByRole('link', { name: 'Change language' }).click() //not yet implemented
     await expect(page).toHaveURL('/')
 
+    //checks: data-theme attribute override
     await page.getByRole('link', { name: 'Toggle theme' }).click()
     const body = page.locator('body')
     await expect(body).toHaveAttribute('data-theme', 'theme-light')
