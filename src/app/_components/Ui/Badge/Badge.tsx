@@ -10,7 +10,7 @@ interface BadgeProps {
 
 export default function Badge({ icon, goTo, ariaLabel, variant = 'primary-inset' }: BadgeProps) {
   return (
-    <Link href={goTo} aria-label={ariaLabel} className={style[variant]}>
+    <Link href={goTo} aria-label={ariaLabel} className={style[variant]} data-testid='badge'>
       {icon}
     </Link>
   )
