@@ -56,9 +56,9 @@
             @for $i from 1 through 4
                 a:nth-child(#{$i})
                     margin-left: 0
-                    margin-top: if($i == 1, 0, -150px)
+                    margin-top: if(sass($i == 1): 0; else: -150px)
                     @include break(xl)
-                        margin-left: if($i == 1, 0, -300px)
+                        margin-left: if(sass($i == 1): 0; else: -300px)
                         margin-top: 0
                     &:hover
                         z-index: 2
